@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V.V - Maharashtra Board Learning Assistant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <span>V.V</span>
+          <h1>Maharashtra Board Assistant</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li>
+              <a href="#"><i class="fas fa-book"></i> Books <i class="fas fa-chevron-down"></i></a>
+              <div class="dropdown">
+                <a href="https://books.ebalbharati.in/" target="_blank">eBalbharati Textbooks</a>
+                <a href="#">Class 1-5 Textbooks</a>
+                <a href="#">Class 6-8 Textbooks</a>
+                <a href="#">Class 9-10 Textbooks</a>
+                <a href="#">Reference Books</a>
+              </div>
+            </li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> Q&A</a></li>
+            <li><a href="#" onclick="showProfile()"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="#"><i class="fas fa-phone"></i> Contact</a></li>
+            <li><a href="https://v.vstateboard.com/open" class="app-link"><i class="fas fa-external-link-alt"></i> Open App</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <h2>Your Personal Learning Assistant for Maharashtra State Board</h2>
+      <p>Get answers to your academic questions, access study notes, and enhance your learning experience for classes 1 to 10</p>
+      <div class="search-box">
+        <input type="text" id="questionInput" placeholder="Ask any question from Maharashtra State Board syllabus..." />
+        <button onclick="getAnswer()">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">How V.V Helps You Learn</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Curriculum-Aligned Answers</h3>
+          <p>Get precise answers that follow the Maharashtra State Board curriculum for classes 1 to 10.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-book-open"></i>
+          <h3>Official Textbook Integration</h3>
+          <p>Answers directly reference the official Maharashtra State Board textbooks from eBalbharati.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-info-circle"></i>
+          <h3>Additional Information</h3>
+          <p>Enhance your understanding with extra context, real-world examples, and related concepts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="classes">
+    <div class="container">
+      <h2 class="section-title">Classes We Cover</h2>
+      <div class="class-grid">
+        <div class="class-card" onclick="showBooks('primary')">
+          <i class="fas fa-pencil-alt"></i>
+          <h3>Class 1-5</h3>
+          <p>Elementary Education</p>
+        </div>
+        <div class="class-card" onclick="showBooks('middle')">
+          <i class="fas fa-calculator"></i>
+          <h3>Class 6-8</h3>
+          <p>Middle School</p>
+        </div>
+        <div class="class-card" onclick="showBooks('secondary')">
+          <i class="fas fa-flask"></i>
+          <h3>Class 9-10</h3>
+          <p>Secondary Education</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qa-section">
+    <div class="container">
+      <h2 class="section-title">Ask Your Question</h2>
+      <div class="qa-container">
+        <textarea class="question-input" id="questionInputDetailed" placeholder="Type your question here..."></textarea>
+        <button class="ask-button" onclick="getAnswer()">Ask Question</button>
+
+        <div class="answer-container" id="answerContainer">
+          <div class="answer-header">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Answer</h3>
+          </div>
+          <div class="answer-content" id="answerContent">
+            <!-- Answer will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="books" id="booksSection" style="display: none;">
+    <div class="container">
+      <div class="books-header">
+        <h2 class="section-title" id="booksTitle">Class Resources</h2>
+        <button class="back-button" onclick="hideBooks()"><i class="fas fa-arrow-left"></i> Back to Classes</button>
+      </div>
+      <div class="books-content" id="booksContent">
+        <!-- Content will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">V.V</div>
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">About Us</a>
+          <a href="https://books.ebalbharati.in/" target="_blank">eBalbharati</a>
+          <a href="https://v.vstateboard.com/open" target="_blank">Open App</a>
+          <a href="#">Contact</a>
+        </div>
+        <p class="copyright">© 2023 V.V - Maharashtra Board Learning Assistant. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
