@@ -882,3 +882,78 @@ body.dark nav,
 body.dark footer {
   background: #1e1e1e;
 }
+   
+/* ====== MOBILE LAYOUT FIXES ====== */
+@media (max-width: 768px) {
+
+  /* Header */
+  .header-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  nav ul {
+    display: none; /* hide desktop nav */
+    flex-direction: column;
+    background: #1e1e1e;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    padding: 10px;
+  }
+
+  nav ul.show {
+    display: flex; /* show when active */
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  /* Hamburger menu */
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Hide menu-toggle on desktop */
+  @media (min-width: 769px) {
+    .menu-toggle {
+      display: none;
+    }
+  }
+
+  /* Hero section */
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Cards (Class/Subject) */
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+  }
+  .class-btn, .subject-btn {
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  /* Profile / Q&A */
+  .profile-container, .qa-page {
+    width: 90%;
+    padding: 20px;
+  }
+
+  /* Footer */
+  .footer-content {
+    font-size: 0.9rem;
+  }
+}
