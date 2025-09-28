@@ -19,37 +19,41 @@
       <div class="logo-text">Maharashtra Board</div>
     </div>
 
-    <!-- Hamburger menu (mobile only) -->
-    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
-      ☰
+    <!-- Right side controls -->
+    <div class="right-controls">
+      <!-- Settings -->
+      <div class="settings-wrapper">
+        <button id="settingsBtn" aria-label="Open settings">
+          <i class="fas fa-cog"></i>
+        </button>
+        <div id="settingsPanel" class="settings-panel">
+          <h4>⚙️ Settings</h4>
+          <label class="toggle">
+            <input type="checkbox" id="darkToggle" />
+            <span class="slider"></span>
+            Dark Mode
+          </label>
+        </div>
+      </div>
+
+      <!-- Hamburger menu -->
+      <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
+        ☰
+      </div>
     </div>
 
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="textbooks.html"><i class="fas fa-book"></i> Textbooks</a></li>
         <li><a href="digest.html"><i class="fas fa-book-open"></i> Digest</a></li>
-        <li><a href="class10.html" target="_blank"><i class="fas fa-folder-open"></i> Class 10 Resources</a></li>
+        <li><a href="class10.html" target="_blank"><i class="fas fa-folder-open"></i> Class 10</a></li>
         <li><a href="qa.html"><i class="fas fa-question-circle"></i> Q&A</a></li>
         <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
       </ul>
     </nav>
-
-    <!-- Settings -->
-    <div class="settings-wrapper">
-      <button id="settingsBtn" aria-label="Open settings">
-        <i class="fas fa-cog"></i>
-      </button>
-      <div id="settingsPanel" class="settings-panel">
-        <h4>⚙️ Settings</h4>
-        <label class="toggle">
-          <input type="checkbox" id="darkToggle" />
-          <span class="slider"></span>
-          Dark Mode
-        </label>
-      </div>
-    </div>
   </div>
 </header>
+
 
 
   <!-- AI ANSWER SYSTEM -->
@@ -108,3 +112,4 @@
 
 </body>
 </html>
+
