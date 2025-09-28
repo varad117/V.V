@@ -1086,6 +1086,43 @@ nav ul {
   }
 }
 
+.header {
+  display: flex;
+  justify-content: space-between; /* logo on left, icons on right */
+  align-items: center;
+  padding: 10px 15px;
+  background: linear-gradient(to right, #6a11cb, #2575fc); /* your purple gradient */
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between logo and text */
+}
+
+.logo-section img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.logo-section h1 {
+  font-size: 16px;
+  color: white;
+  margin: 0;
+}
+
+.menu-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* space between icons */
+}
+
+.menu-icons i {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
 
 
 
