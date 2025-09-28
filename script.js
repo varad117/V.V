@@ -241,3 +241,34 @@ document.addEventListener("DOMContentLoaded", () => {
     // ... rest of AI logic
   });
 });
+
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navMenu = document.querySelector('nav ul');
+
+mobileMenuBtn.addEventListener('click', () => {
+  navMenu.classList.toggle('show');
+});
+
+// Settings panel toggle
+const settingsBtn = document.getElementById('settingsBtn');
+const settingsPanel = document.getElementById('settingsPanel');
+
+settingsBtn.addEventListener('click', () => {
+  settingsPanel.style.display = settingsPanel.style.display === 'block' ? 'none' : 'block';
+});
+
+// Dark mode toggle
+const darkToggle = document.getElementById('darkToggle');
+darkToggle.addEventListener('change', () => {
+  document.body.classList.toggle('dark', darkToggle.checked);
+});
+
+
+document.querySelectorAll('nav ul li a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (navMenu.classList.contains('show')) {
+      navMenu.classList.remove('show');
+    }
+  });
+});
