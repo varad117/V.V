@@ -41,7 +41,7 @@ header {
 .logo {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 15px; /* PC Gap */
 }
 
 .logo-circle {
@@ -163,6 +163,9 @@ nav ul li a {
   border-radius: 50px;
   font-size: 1.1rem;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  /* CRITICAL FIX: Ensure no border/outline on focus for both PC and Mobile */
+  border: none;
+  outline: none;
 }
 
 .search-box button {
@@ -199,6 +202,10 @@ nav ul li a {
     }
 
     /* LOGO: Smaller size and WHITE text for image look */
+    .logo {
+        /* CRITICAL FIX: Decrease space between logo circle and text */
+        gap: 8px; 
+    }
     .logo-circle {
         width: 50px;
         height: 50px;
@@ -211,52 +218,46 @@ nav ul li a {
         color: #fff; 
     }
 
-    /* HIDE DESKTOP NAV, SHOW HAMBURGER (from mobile image) */
+    /* HIDE DESKTOP NAV */
     nav ul {
         display: none; 
     }
     
-    /* Show Hamburger on mobile, aligned to the right */
+    /* Mobile Menu Toggle/Hamburger */
     .menu-toggle {
         display: block; 
         font-size: 1.8rem;
         color: white;
         cursor: pointer;
-        margin-left: 12px;
+        /* CRITICAL FIX: Add margin to separate from settings gear */
+        margin-right: 15px; 
     }
 
     /* Settings: Ensure gear icon is visible */
     .settings-wrapper {
-        margin-left: auto; /* Push to the right */
+        /* CRITICAL FIX: Set margin-left to auto to push it to the right, next to the hamburger */
+        margin-left: auto; 
     }
     .settings-wrapper button {
         font-size: 1.5rem; 
     }
     
-    /* CRITICAL FIX: Settings Panel Mobile Style (White text on Purple background) */
+    /* Settings Panel Mobile Style (White text on Purple background) */
     #settingsPanel {
-        background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
-        color: #fff; /* White text for mobile image look */
+        background: rgba(255, 255, 255, 0.1); 
+        color: #fff; 
         border: none;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         padding: 15px;
         width: 160px;
     }
     
-    /* Settings panel text and icon color */
     #settingsPanel h4 {
         color: #fff;
     }
-    
-    /* Toggle slider adjustments for dark mode */
-    .toggle {
-        color: #fff;
-    }
-
 
     /* --- HERO/AI SECTION (Mobile Image-Specific Look) --- */
     .hero.ai-section {
-        /* Full purple background, no rounding, no image */
         background: linear-gradient(135deg, #544dd1 0%, #7c3aed 100%);
         padding: 100px 20px 150px; 
         min-height: 80vh; 
@@ -265,10 +266,6 @@ nav ul li a {
         display: flex;
         align-items: flex-start; 
         justify-content: center;
-    }
-
-    .hero-content {
-        margin-top: 50px;
     }
 
     .hero h2 {
@@ -299,6 +296,7 @@ nav ul li a {
         font-size: 1rem; 
         background: transparent; 
         box-shadow: none; 
+        /* The common border/outline fix is already in the main .search-box input rule */
     }
 
     .search-box button {
@@ -309,7 +307,6 @@ nav ul li a {
         box-shadow: 0 4px 15px rgba(255, 179, 71, 0.4);
     }
     
-    /* Ensure the output box is still hidden on mobile by default */
     #answerContent.answer-output {
         display: none; 
     }
