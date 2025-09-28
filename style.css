@@ -45,6 +45,7 @@ header {
 }
 
 .logo-circle {
+  margin-left: -10px; /* adjust value as needed */
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -1084,6 +1085,7 @@ nav ul {
     margin-left: 12px;
   }
 }
+
 
 
 
