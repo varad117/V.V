@@ -112,8 +112,8 @@ nav ul li a {
     position: absolute;
     right: 0;
     top: 45px;
-    background: #fff; /* PC: White box background */
-    color: #2d3748; /* PC: Dark text */
+    background: #fff; 
+    color: #2d3748; 
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px 20px;
@@ -163,7 +163,6 @@ nav ul li a {
   border-radius: 50px;
   font-size: 1.1rem;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-  /* CRITICAL FIX: Ensure no border/outline on focus for both PC and Mobile */
   border: none;
   outline: none;
 }
@@ -201,20 +200,23 @@ nav ul li a {
         flex-wrap: nowrap;
     }
 
-    /* LOGO: Smaller size and WHITE text for image look */
+    /* CRITICAL FIX: LOGO Size, Spacing, and Position for Mobile */
     .logo {
-        /* CRITICAL FIX: Decrease space between logo circle and text */
-        gap: 8px; 
+        /* Align logo slightly to the left from the container edge */
+        margin-left: -5px; 
+        /* Slightly bigger gap than the previous 8px for better visual appeal */
+        gap: 10px; 
     }
     .logo-circle {
-        width: 50px;
-        height: 50px;
+        /* Make logo circle slightly bigger on mobile */
+        width: 55px;
+        height: 55px;
     }
     .logo-circle span {
-        font-size: 1.4rem;
+        font-size: 1.6rem; /* Bigger V.V text */
     }
     .logo-text {
-        font-size: 1.3rem;
+        font-size: 1.5rem; /* Bigger Maharashtra Board text */
         color: #fff; 
     }
 
@@ -229,20 +231,18 @@ nav ul li a {
         font-size: 1.8rem;
         color: white;
         cursor: pointer;
-        /* CRITICAL FIX: Add margin to separate from settings gear */
         margin-right: 15px; 
     }
 
-    /* Settings: Ensure gear icon is visible */
+    /* Settings */
     .settings-wrapper {
-        /* CRITICAL FIX: Set margin-left to auto to push it to the right, next to the hamburger */
         margin-left: auto; 
     }
     .settings-wrapper button {
         font-size: 1.5rem; 
     }
     
-    /* Settings Panel Mobile Style (White text on Purple background) */
+    /* Settings Panel Mobile Style */
     #settingsPanel {
         background: rgba(255, 255, 255, 0.1); 
         color: #fff; 
@@ -266,6 +266,10 @@ nav ul li a {
         display: flex;
         align-items: flex-start; 
         justify-content: center;
+    }
+
+    .hero-content {
+        margin-top: 50px;
     }
 
     .hero h2 {
@@ -296,7 +300,6 @@ nav ul li a {
         font-size: 1rem; 
         background: transparent; 
         box-shadow: none; 
-        /* The common border/outline fix is already in the main .search-box input rule */
     }
 
     .search-box button {
