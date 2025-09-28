@@ -11,46 +11,52 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container header-content">
-      <div class="logo">
-        <div class="logo-circle"><span>V.V</span></div>
-        <div class="logo-text">Maharashtra Board</div>
+<!-- HEADER -->
+<header>
+  <div class="container header-content" style="display: flex; justify-content: space-between; align-items: center;">
+
+    <!-- Logo Section -->
+    <div class="logo" style="display: flex; align-items: center; gap: 0.5rem;">
+      <div class="logo-circle" style="width:40px; height:40px; border-radius:50%; background:white; display:flex; justify-content:center; align-items:center; color:#4a90e2; font-weight:bold;">V.V</div>
+      <div class="logo-text" style="font-weight:bold; font-size:1.2rem; color:white;">Maharashtra Board</div>
+    </div>
+
+    <!-- Right Controls (Settings + Hamburger) -->
+    <div class="right-controls" style="display: flex; align-items: center; gap: 0.5rem;">
+
+      <!-- Settings -->
+      <div class="settings-wrapper" style="position: relative;">
+        <button id="settingsBtn" aria-label="Open settings" style="background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">
+          <i class="fas fa-cog"></i>
+        </button>
+        <div id="settingsPanel" class="settings-panel" style="display:none; position:absolute; top:120%; right:0; background:white; color:#333; padding:1rem; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+          <h4>⚙️ Settings</h4>
+          <label class="toggle">
+            <input type="checkbox" id="darkToggle" />
+            <span class="slider"></span>
+            Dark Mode
+          </label>
+        </div>
       </div>
 
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="textbooks.html"><i class="fas fa-book"></i> Textbooks</a></li>
-          <li><a href="digest.html"><i class="fas fa-book-open"></i> Digest</a></li>
-          <li><a href="class10.html" target="_blank"><i class="fas fa-folder-open"></i> Class 10 Resources</a></li>
-          <li><a href="qa.html"><i class="fas fa-question-circle"></i> Q&A</a></li>
-          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
-        </ul>
-      </nav>
+      <!-- Hamburger menu -->
+      <div class="menu-toggle" id="mobileMenuBtn" style="font-size:1.5rem; cursor:pointer; color:white;">
+        ☰
+      </div>
+    </div>
+  </div>
 
-      <!-- Right Controls (Settings + Menu) -->
-      <div class="right-controls">
-        <div class="settings-wrapper">
-          <button id="settingsBtn" aria-label="Open settings">
-            <i class="fas fa-cog"></i>
-          </button>
-          <div id="settingsPanel" class="settings-panel">
-            <h4>⚙️ Settings</h4>
-            <label class="toggle">
-              <input type="checkbox" id="darkToggle" />
-              <span class="slider"></span>
-              Dark Mode
-            </label>
-          </div>
-        </div>
-
-       <!-- Hamburger menu -->
-<div class="menu-toggle" id="mobileMenuBtn">
-  ☰
-</div>
-
-  </header>
+  <!-- Navigation (desktop) -->
+  <nav aria-label="Main navigation" style="margin-top:0.5rem;">
+    <ul style="display:flex; gap:1rem; list-style:none; padding:0; margin:0;">
+      <li><a href="textbooks.html" style="color:white; text-decoration:none;"><i class="fas fa-book"></i> Textbooks</a></li>
+      <li><a href="digest.html" style="color:white; text-decoration:none;"><i class="fas fa-book-open"></i> Digest</a></li>
+      <li><a href="class10.html" target="_blank" style="color:white; text-decoration:none;"><i class="fas fa-folder-open"></i> Class 10 Resources</a></li>
+      <li><a href="qa.html" style="color:white; text-decoration:none;"><i class="fas fa-question-circle"></i> Q&A</a></li>
+      <li><a href="profile.html" style="color:white; text-decoration:none;"><i class="fas fa-user"></i> Profile</a></li>
+    </ul>
+  </nav>
+</header>
 
   <!-- HERO SECTION -->
   <section class="hero ai-section">
