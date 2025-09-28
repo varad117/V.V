@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V.V Maharashtra Board - Textbooks</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin:0;
+    font-family:"Poppins",sans-serif;
+    background:linear-gradient(135deg,#f5f7fa 0%,#e4e8f0 100%);
+    color:#2d3748;
+  }
+  header {
+    background:linear-gradient(135deg,#544dd1 0%,#7c3aed 100%);
+    padding:16px 24px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  }
+  .logo-circle {
+    width:55px;height:55px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#c3b8ff 0%,#4f46e5 100%);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;font-weight:800;color:#000;
+    box-shadow:0 4px 12px rgba(0,0,0,.3);
+  }
+  header h1 {margin:0;color:#fff;font-size:1.5rem;font-weight:600;}
+
+  main {
+    max-width:950px;
+    margin:40px auto;
+    background:#fff;
+    padding:50px 30px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+    text-align:center;
+  }
+
+  h2 {
+    margin:0 0 28px;
+    font-size:1.4rem;
+    font-weight:700;
+    color:#000;
+    background:#b48bff;
+    padding:6px 20px;
+    border-radius:8px;
+    display:inline-block;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .class-row {
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:22px;
+    margin-bottom:28px;
+  }
+
+  .btn-shared {
+    width:200px;
+    padding:15px 0;
+    border:none;
+    border-radius:50px;
+    font-size:1.05rem;
+    font-weight:600;
+    color:#fff;
+    background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);
+    box-shadow:0 6px 15px rgba(0,0,0,0.25);
+    cursor:pointer;
+    transition:all .3s;
+  }
+  .btn-shared:hover {
+    background:linear-gradient(135deg,#6b63ff 0%,#5b34e5 100%);
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+  }
+
+  #backBtn {
+    margin-top:25px;
+    padding:10px 25px;
+    font-size:1rem;
+    background:#4f46e5;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    display:none;
+    transition:background .3s;
+  }
+  #backBtn:hover {background:#372ea0;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-circle">V.V</div>
+  <h1>Maharashtra Board Textbooks</h1>
+</header>
+
+<main>
+  <h2 id="sectionTitle">Select Class</h2>
+  <div id="levelContent"></div>
+  <button id="backBtn">← Back</button>
+</main>
+
+<script>
+const textbooks = {
+  "Class 4": {
+    "EVS Part-1": "http://127.0.0.1:8000/pdfs/4_EVS-Part1.pdf",
+    "EVS Part-2": "http://127.0.0.1:8000/pdfs/4_EVS-Part2.pdf",
+    "Marathi": "http://127.0.0.1:8000/pdfs/4_Marathi.pdf",
+    "English": "http://127.0.0.1:8000/pdfs/4_English.pdf",
+    "Mathematics": "http://127.0.0.1:8000/pdfs/4_Mathematics.pdf",
+    "Hindi": "http://127.0.0.1:8000/pdfs/4_Hindi.pdf"
+  },
+  "Class 5": {
+    "Marathi": "http://127.0.0.1:8000/pdfs/5_Marathi.pdf",
+    "English": "http://127.0.0.1:8000/pdfs/5_English.pdf",
+    "Hindi": "http://127.0.0.1:8000/pdfs/5_Hindi.pdf",
+    "Mathematics": "http://127.0.0.1:8000/pdfs/5_Mathematics.pdf",
+    "EVS Part-1": "http://127.0.0.1:8000/pdfs/5_EVS-Part1.pdf",
+    "EVS Part-2": "http://127.0.0.1:8000/pdfs/5_EVS-Part2.pdf"
+  },
+  "Class 6": {
+    "Marathi": "http://127.0.0.1:8000/pdfs/6_Marathi.pdf",
+    "Mathematics": "http://127.0.0.1:8000/pdfs/6_Mathematics.pdf",
+    "Hindi": "http://127.0.0.1:8000/pdfs/6_Hindi.pdf",
+    "English": "http://127.0.0.1:8000/pdfs/6_English.pdf",
+    "General Science": "http://127.0.0.1:8000/pdfs/6_General-Science.pdf",
+    "History and Civics": "http://127.0.0.1:8000/pdfs/6_History-Civics.pdf",
+    "Geography": "http://127.0.0.1:8000/pdfs/6_Geography.pdf"
+  },
+  "Class 7": {
+    "Marathi": "http://127.0.0.1:8000/pdfs/7_Marathi.pdf",
+    "Mathematics": "http://127.0.0.1:8000/pdfs/7_Mathematics.pdf",
+    "English": "http://127.0.0.1:8000/pdfs/7_English.pdf",
+    "Hindi": "http://127.0.0.1:8000/pdfs/7_Hindi.pdf",
+    "General Science": "http://127.0.0.1:8000/pdfs/7_General-Science.pdf",
+    "History and Civics": "http://127.0.0.1:8000/pdfs/7_History-Civics.pdf",
+    "Geography": "http://127.0.0.1:8000/pdfs/7_Geography.pdf"
+  },
+  "Class 8": {
+    "Marathi": "http://127.0.0.1:8000/pdfs/8_Marathi.pdf",
+    "Mathematics": "http://127.0.0.1:8000/pdfs/8_Mathematics.pdf",
+    "English": "http://127.0.0.1:8000/pdfs/8_English.pdf",
+    "Hindi": "http://127.0.0.1:8000/pdfs/8_Hindi.pdf",
+    "General Science": "http://127.0.0.1:8000/pdfs/8_General-Science.pdf",
+    "History and Civics": "http://127.0.0.1:8000/pdfs/8_History-Civics.pdf",
+    "Geography": "http://127.0.0.1:8000/pdfs/8_Geography.pdf"
+  },
+  "Class 9": {
+    "Marathi": "http://127.0.0.1:8000/pdfs/9_Marathi.pdf",
+    "Mathematics Part-1": "http://127.0.0.1:8000/pdfs/9_Mathematics-Part1.pdf",
+    "Mathematics Part-2": "http://127.0.0.1:8000/pdfs/9_Mathematics-Part2.pdf",
+    "English": "http://127.0.0.1:8000/pdfs/9_English.pdf",
+    "Hindi": "http://127.0.0.1:8000/pdfs/9_Hindi.pdf",
+    "Science and Technology": "http://127.0.0.1:8000/pdfs/9_Science-Technology.pdf",
+    "History and Civics": "http://127.0.0.1:8000/pdfs/9_History-Civics.pdf",
+    "Geography": "http://127.0.0.1:8000/pdfs/9_Geography.pdf"
+  },
+  "Class 10": {
+    "Marathi": "http://127.0.0.1:8000/pdfs/10_Marathi.pdf",
+    "Mathematics Part-1": "http://127.0.0.1:8000/pdfs/10_Mathematics-Part1.pdf",
+    "Mathematics Part-2": "http://127.0.0.1:8000/pdfs/10_Mathematics-Part2.pdf",
+    "English": "http://127.0.0.1:8000/pdfs/10_English.pdf",
+    "Hindi": "http://127.0.0.1:8000/pdfs/10_Hindi.pdf",
+    "Science and Technology Part-1": "http://127.0.0.1:8000/pdfs/10_Science-Technology-Part1.pdf",
+    "Science and Technology Part-2": "http://127.0.0.1:8000/pdfs/10_Science-Technology-Part2.pdf",
+    "History and Civics": "http://127.0.0.1:8000/pdfs/10_History-Civics.pdf",
+    "Geography": "http://127.0.0.1:8000/pdfs/10_Geography.pdf"
+  }
+};
+
+const levelContent = document.getElementById("levelContent");
+const backBtn = document.getElementById("backBtn");
+const sectionTitle = document.getElementById("sectionTitle");
+let currentClass = null;
+
+function showClasses(){
+  sectionTitle.textContent = "Select Class";
+  backBtn.style.display = "none";
+  levelContent.innerHTML = "";
+  currentClass = null;
+
+  const classes = Object.keys(textbooks);
+  const topRow = document.createElement("div");
+  topRow.className = "class-row";
+  const bottomRow = document.createElement("div");
+  bottomRow.className = "class-row";
+
+  classes.slice(0,4).forEach(cls=>{
+    const btn = document.createElement("button");
+    btn.textContent = cls;
+    btn.className = "btn-shared";
+    btn.onclick = ()=>showSubjects(cls);
+    topRow.appendChild(btn);
+  });
+
+  classes.slice(4).forEach(cls=>{
+    const btn = document.createElement("button");
+    btn.textContent = cls;
+    btn.className = "btn-shared";
+    btn.onclick = ()=>showSubjects(cls);
+    bottomRow.appendChild(btn);
+  });
+
+  levelContent.appendChild(topRow);
+  levelContent.appendChild(bottomRow);
+}
+
+function showSubjects(cls){
+  currentClass = cls;
+  sectionTitle.textContent = "Select Subject";
+  levelContent.innerHTML = "";
+  backBtn.style.display = "inline-block";
+
+  const subjects = textbooks[cls];
+  const row = document.createElement("div");
+  row.className = "class-row";
+
+  Object.keys(subjects).forEach(sub=>{
+    const btn = document.createElement("button");
+    btn.textContent = sub;
+    btn.className = "btn-shared";
+    btn.onclick = ()=>{
+      const pdfLink = subjects[sub];
+      window.open(pdfLink,"_blank");
+    };
+    row.appendChild(btn);
+  });
+
+  levelContent.appendChild(row);
+}
+
+backBtn.onclick = ()=>showClasses();
+showClasses();
+</script>

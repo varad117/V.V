@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Settings - V.V Maharashtra Board</title>
+</head>
+<body>
+<header>
+  <div class="container header-content">
+    <div class="logo">
+      <div class="logo-circle"><span>V.V</span></div>
+      <div class="logo-text">Maharashtra Board</div>
+    </div>
+  </div>
+</header>
+
+<section class="settings">
+  <div class="container">
+    <h2 class="section-title">Download Settings</h2>
+
+    <form class="settings-form">
+      <label>
+        <input type="checkbox" id="autoDownload" /> Enable Auto Download after opening a chapter
+      </label>
+
+      <label>
+        Download Folder:
+        <select id="downloadFolder">
+          <option>Default</option>
+          <option>My Documents</option>
+          <option>Custom Folder</option>
+        </select>
+      </label>
+
+      <button type="button" onclick="saveSettings()">Save Settings</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p style="text-align:center; padding:20px;">© 2025 V.V</p>
+</footer>
+
+<script>
+function saveSettings(){
+  const auto = document.getElementById("autoDownload").checked;
+  const folder = document.getElementById("downloadFolder").value;
+  alert(`Settings saved:\nAuto Download: ${auto}\nFolder: ${folder}`);
+}
+</script>
+</body>
+</html>

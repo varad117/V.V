@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V.V Maharashtra Board - Class 10 Resources</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      color: #2d3748;
+    }
+    header {
+      background: linear-gradient(135deg, #544dd1 0%, #7c3aed 100%);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .logo-circle {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c3b8ff 0%, #4f46e5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    main {
+      max-width: 950px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 50px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h2 {
+      margin: 0 0 28px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #000;
+      background: #b48bff;
+      padding: 6px 20px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .class-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-bottom: 28px;
+    }
+    .btn-shared {
+      width: 200px;
+      padding: 15px 0;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: all .3s;
+    }
+    .btn-shared:hover {
+      background: linear-gradient(135deg, #6b63ff 0%, #5b34e5 100%);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+    #backBtn {
+      margin-top: 25px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: none;
+      transition: background .3s;
+    }
+    #backBtn:hover {
+      background: #372ea0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-circle">V.V</div>
+  <h1>Class 10 Resources</h1>
+</header>
+
+<main>
+  <h2 id="sectionTitle">Select Resource Type</h2>
+  <div id="levelContent"></div>
+  <button id="backBtn">← Back</button>
+</main>
+
+<script>
+const baseURL = "http://127.0.0.1:8000/10th/";
+const levelContent = document.getElementById("levelContent");
+const backBtn = document.getElementById("backBtn");
+const sectionTitle = document.getElementById("sectionTitle");
+
+let currentView = "main";
+let currentSubject = "";
+
+function showMainOptions() {
+  sectionTitle.textContent = "Select Resource Type";
+  levelContent.innerHTML = "";
+  backBtn.style.display = "none";
+  currentView = "main";
+
+  const row = document.createElement("div");
+  row.className = "class-row";
+
+  const refBtn = document.createElement("button");
+  refBtn.textContent = "📚 Reference Books";
+  refBtn.className = "btn-shared";
+  refBtn.onclick = () => showReferenceSubjects();
+
+  const pyqBtn = document.createElement("button");
+  pyqBtn.textContent = "📄 Previous Year Questions";
+  pyqBtn.className = "btn-shared";
+  pyqBtn.onclick = () => showPYQSubjects();
+
+  row.appendChild(refBtn);
+  row.appendChild(pyqBtn);
+  levelContent.appendChild(row);
+}
+
+function showReferenceSubjects() {
+  sectionTitle.textContent = "Select Subject";
+  levelContent.innerHTML = "";
+  backBtn.style.display = "inline-block";
+  currentView = "ref";
+
+  const row = document.createElement("div");
+  row.className = "class-row";
+
+  const subjects = {
+    "Math": "Reference-Books/Math.pdf",
+    "Science": "Reference-Books/Science.pdf"
+  };
+
+  Object.keys(subjects).forEach(sub => {
+    const btn = document.createElement("button");
+    btn.textContent = sub;
+    btn.className = "btn-shared";
+    btn.onclick = () => {
+      window.open(baseURL + subjects[sub], "_blank");
+    };
+    row.appendChild(btn);
+  });
+
+  levelContent.appendChild(row);
+}
+
+function showPYQSubjects() {
+  sectionTitle.textContent = "Select Subject";
+  levelContent.innerHTML = "";
+  backBtn.style.display = "inline-block";
+  currentView = "pyq";
+
+  const row = document.createElement("div");
+  row.className = "class-row";
+
+  ["Math", "Science"].forEach(sub => {
+    const btn = document.createElement("button");
+    btn.textContent = sub;
+    btn.className = "btn-shared";
+    btn.onclick = () => showPYQYears(sub);
+    row.appendChild(btn);
+  });
+
+  levelContent.appendChild(row);
+}
+
+function showPYQYears(subject) {
+  sectionTitle.textContent = `${subject} – Select Year`;
+  levelContent.innerHTML = "";
+  currentView = "pyq-year";
+  currentSubject = subject;
+
+  const row = document.createElement("div");
+  row.className = "class-row";
+
+  ["2021", "2022", "2023", "2024", "2025"].forEach(year => {
+    const btn = document.createElement("button");
+    btn.textContent = year;
+    btn.className = "btn-shared";
+    btn.onclick = () => {
+      window.open(`${baseURL}Previous-Year/${subject}/${year}.pdf`, "_blank");
+    };
+    row.appendChild(btn);
+  });
+
+  levelContent.appendChild(row);
+}
+
+backBtn.onclick = () => {
+  if (currentView === "pyq-year") {
+    showPYQSubjects();
+  } else {
+    showMainOptions();
+  }
+};
+
+showMainOptions();
+</script>
+
+<script>
+window.onload = () => {
+  const baseURL = "http://127.0.0.1:8000/";
+  const backBtn = document.getElementById("backBtn");
+  const levelContent = document.getElementById("levelContent");
+  const sectionTitle = document.getElementById("sectionTitle");
+
+  let currentView = "main";
+  let currentSubject = "";
+
+  const subjects = [
+    "Marathi",
+    "Mathematics Part-1",
+    "Mathematics Part-2",
+    "English",
+    "Hindi",
+    "Science and Technology Part-1",
+    "Science and Technology Part-2",
+    "History and Civics",
+    "Geography"
+  ];
+
+  function showMainOptions() {
+    sectionTitle.textContent = "Select Resource Type";
+    levelContent.innerHTML = "";
+    backBtn.style.display = "none";
+    currentView = "main";
+
+    const row = document.createElement("div");
+    row.className = "class-row";
+
+    const refBtn = document.createElement("button");
+    refBtn.textContent = "📚 Reference Books";
+    refBtn.className = "btn-shared";
+    refBtn.onclick = () => showReferenceSubjects();
+
+    const pyqBtn = document.createElement("button");
+    pyqBtn.textContent = "📄 Previous Year Questions";
+    pyqBtn.className = "btn-shared";
+    pyqBtn.onclick = () => showPYQSubjects();
+
+    row.appendChild(refBtn);
+    row.appendChild(pyqBtn);
+    levelContent.appendChild(row);
+  }
+
+  function showReferenceSubjects() {
+    sectionTitle.textContent = "Select Subject";
+    levelContent.innerHTML = "";
+    backBtn.style.display = "inline-block";
+    currentView = "ref";
+
+    const refSubjects = {
+      "Mathematics Part-1": "10th/Reference-Books/Mathematics-Part-1.pdf",
+      "Mathematics Part-2": "10th/Reference-Books/Mathematics-Part-2.pdf",
+      "Science and Technology Part-1": "10th/Reference-Books/Science-and-Technology-Part-1.pdf",
+      "Science and Technology Part-2": "10th/Reference-Books/Science-and-Technology-Part-2.pdf"
+    };
+
+    const row = document.createElement("div");
+    row.className = "class-row";
+
+    Object.keys(refSubjects).forEach(sub => {
+      const btn = document.createElement("button");
+      btn.textContent = sub;
+      btn.className = "btn-shared";
+      btn.onclick = () => {
+        window.open(baseURL + refSubjects[sub], "_blank");
+      };
+      row.appendChild(btn);
+    });
+
+    levelContent.appendChild(row);
+  }
+
+  function showPYQSubjects() {
+    sectionTitle.textContent = "Select Subject";
+    levelContent.innerHTML = "";
+    backBtn.style.display = "inline-block";
+    currentView = "pyq";
+
+    const row = document.createElement("div");
+    row.className = "class-row";
+
+    subjects.forEach(sub => {
+      const btn = document.createElement("button");
+      btn.textContent = sub;
+      btn.className = "btn-shared";
+      btn.onclick = () => showPYQYears(sub);
+      row.appendChild(btn);
+    });
+
+    levelContent.appendChild(row);
+  }
+
+  function showPYQYears(subject) {
+    sectionTitle.textContent = `${subject} – Select Year`;
+    levelContent.innerHTML = "";
+    currentView = "pyq-year";
+    currentSubject = subject;
+
+    const row = document.createElement("div");
+    row.className = "class-row";
+
+    const folderName = subject.replace(/ /g, "-");
+
+    ["2021", "2022", "2023", "2024", "2025"].forEach(year => {
+      const btn = document.createElement("button");
+      btn.textContent = year;
+      btn.className = "btn-shared";
+      btn.onclick = () => {
+        window.open(`${baseURL}pdf/${folderName}/${year}.pdf`, "_blank");
+      };
+      row.appendChild(btn);
+    });
+
+    levelContent.appendChild(row);
+  }
+
+  backBtn.onclick = () => {
+    if (currentView === "pyq-year") {
+      showPYQSubjects();
+    } else {
+      showMainOptions();
+    }
+  };
+
+  showMainOptions();
+};
+</script>
+
+</body>
+</html>
