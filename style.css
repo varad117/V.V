@@ -689,7 +689,6 @@ header {
 }
 
 .logo-circle {
-  margin-left: -10px; /* adjust value as needed */
   width: 55px;
   height: 55px;
   border-radius: 50%;
@@ -1018,77 +1017,34 @@ nav ul {
   display: none; /* hide hamburger on desktop */
 }
 
-/* Mobile nav */
-@media (max-width: 768px) {
-  nav ul {
-    display: none; /* hide desktop nav */
-    flex-direction: column;
-    background: #1e1e1e;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    width: 220px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    padding: 10px;
-    z-index: 999;
-  }
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: white;
+  line-height: 1.2;
+  margin-left: 10px; /* optional spacing from logo-circle */
+}
 
-  nav ul.show {
-    display: flex; /* show menu when active */
-  }
+.logo-text .maha {
+  font-size: 1.2rem;
+}
 
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  nav ul li a {
-    font-size: 0.95rem;
-    padding: 8px 12px;
-  }
-
-  .menu-toggle {
-    display: block; /* show hamburger on mobile */
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: white;
-  }
+.logo-text .board {
+  font-size: 1rem;
+  margin-top: 2px;
 }
 
 @media screen and (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #fff;
-    margin-left: auto;
-  }
-
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background: #4f46e5;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  }
-
-  nav ul.show {
+  .logo {
     display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
-  .settings-wrapper {
-    display: block;
-    margin-left: 12px;
+  .logo-text {
+    text-align: center;
   }
 }
-
-
-
-
-
-
-
