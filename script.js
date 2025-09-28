@@ -1,5 +1,5 @@
 window.onload = () => {
-  const baseURL = "http://127.0.0.1:8000/";
+  const baseURL = "https://vv-rouge.vercel.app/"; // Updated from localhost
   const backBtn = document.getElementById("backBtn");
   const levelContent = document.getElementById("levelContent");
   const sectionTitle = document.getElementById("sectionTitle");
@@ -18,6 +18,11 @@ window.onload = () => {
     "History and Civics",
     "Geography"
   ];
+
+  function openPDF(link) {
+    const viewerLink = "https://docs.google.com/viewer?url=" + encodeURIComponent(link);
+    window.open(viewerLink, "_blank");
+  }
 
   function showMainOptions() {
     sectionTitle.textContent = "Select Resource Type";
@@ -64,7 +69,7 @@ window.onload = () => {
       btn.textContent = sub;
       btn.className = "btn-shared";
       btn.onclick = () => {
-        window.open(baseURL + subjects[sub], "_blank");
+        openPDF(baseURL + subjects[sub]);
       };
       row.appendChild(btn);
     });
@@ -72,63 +77,65 @@ window.onload = () => {
     levelContent.appendChild(row);
   }
 
- function showPYQSubjects() {
-  sectionTitle.textContent = "Select Subject";
-  levelContent.innerHTML = "";
-  backBtn.style.display = "inline-block";
-  currentView = "pyq";
+  function showPYQSubjects() {
+    sectionTitle.textContent = "Select Subject";
+    levelContent.innerHTML = "";
+    backBtn.style.display = "inline-block";
+    currentView = "pyq";
 
-  const row = document.createElement("div");
-  row.className = "class-row";
+    const row = document.createElement("div");
+    row.className = "class-row";
 
-  const subjects = [
-    "Marathi",
-    "Mathematics Part-1",
-    "Mathematics Part-2",
-    "English",
-    "Hindi",
-    "Science and Technology Part-1",
-    "Science and Technology Part-2",
-    "History and Civics",
-    "Geography"
-  ];
+    const subjects = [
+      "Marathi",
+      "Mathematics Part-1",
+      "Mathematics Part-2",
+      "English",
+      "Hindi",
+      "Science and Technology Part-1",
+      "Science and Technology Part-2",
+      "History and Civics",
+      "Geography"
+    ];
 
-  subjects.forEach(sub => {
-    const btn = document.createElement("button");
-    btn.textContent = sub;
-    btn.className = "btn-shared";
-    btn.onclick = () => showPYQYears(sub);
-    row.appendChild(btn);
-  });
+    subjects.forEach(sub => {
+      const btn = document.createElement("button");
+      btn.textContent = sub;
+      btn.className = "btn-shared";
+      btn.onclick = () => showPYQYears(sub);
+      row.appendChild(btn);
+    });
 
-  levelContent.appendChild(row);
-}
+    levelContent.appendChild(row);
+  }
 
-function showPYQYears(subject) {
-  sectionTitle.textContent = `${subject} – Select Year`;
-  levelContent.innerHTML = "";
-  currentView = "pyq-year";
-  currentSubject = subject;
+  function showPYQYears(subject) {
+    sectionTitle.textContent = `${subject} – Select Year`;
+    levelContent.innerHTML = "";
+    currentView = "pyq-year";
+    currentSubject = subject;
 
-  const row = document.createElement("div");
-  row.className = "class-row";
+    const row = document.createElement("div");
+    row.className = "class-row";
 
-  const years = ["2021", "2022", "2023", "2024", "2025"];
-  const folderName = subject.replace(/ /g, "-");
+    const years = ["2021", "2022", "2023", "2024", "2025"];
+    const folderName = subject.replace(/ /g, "-");
 
-  years.forEach(year => {
-    const btn = document.createElement("button");
-    btn.textContent = year;
-    btn.className = "btn-shared";
-    btn.onclick = () => {
-      window.open(`${baseURL}pdf/${folderName}/${year}.pdf`, "_blank");
-    };
-    row.appendChild(btn);
-  });
+    years.forEach(year => {
+      const btn = document.createElement("button");
+      btn.textContent = year;
+      btn.className = "btn-shared";
+      btn.onclick = () => {
+        openPDF(`${baseURL}pdf/${folderName}/${year}.pdf`);
+      };
+      row.appendChild(btn);
+    });
 
-  levelContent.appendChild(row);
+    levelContent.appendChild(row);
+  }
+
+  showMainOptions();
 };
-};  
 
 document.addEventListener("DOMContentLoaded", () => {
   const askBtn = document.getElementById("askBtn");
@@ -143,22 +150,18 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Check if it's a question (ends with ?)
     if (!query.endsWith("?")) {
       answerContent.innerHTML = `<p>Please end your question with a <strong>?</strong> so the AI can respond.</p>`;
       return;
     }
 
-    // Show loading message
     askBtn.textContent = "Thinking...";
     answerContent.innerHTML = `<p><em>Generating answer...</em></p>`;
 
     try {
       const response = await fetch("http://127.0.0.1:8080/ask", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: query })
       });
 
