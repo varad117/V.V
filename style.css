@@ -1054,3 +1054,38 @@ nav ul {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+    margin-left: auto;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #4f46e5;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .settings-wrapper {
+    display: block;
+    margin-left: 12px;
+  }
+}
+
+.menu-toggle {
+  display: none;
+}
+
