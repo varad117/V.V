@@ -1053,3 +1053,127 @@ nav ul {
     color: white;
   }
 }
+
+/* ===== HEADER STYLES ===== */
+header {
+  background-color: #4a90e2; /* You can change the header background */
+  color: white;
+  padding: 0.5rem 1rem;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Flex container for logo + right-controls */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo styles */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  color: #4a90e2;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Right Controls */
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+/* Settings button */
+#settingsBtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Settings panel */
+.settings-panel {
+  display: none;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: white;
+  color: #333;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  min-width: 180px;
+}
+
+/* Toggle in settings */
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Hamburger menu */
+.menu-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Navigation menu */
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 768px) {
+  nav ul {
+    display: none; /* Hide nav on mobile */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .settings-panel {
+    right: 0;
+  }
+}
+
