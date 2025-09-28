@@ -11,105 +11,62 @@
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="container header-content">
-    <div class="logo">
-      <div class="logo-circle"><span>V.V</span></div>
-      <div class="logo-text">Maharashtra Board</div>
-    </div>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <div class="logo-circle"><span>V.V</span></div>
+        <div class="logo-text">Maharashtra Board</div>
+      </div>
 
-    <!-- Right side controls -->
-    <div class="right-controls">
-      <!-- Settings -->
-      <div class="settings-wrapper">
-        <button id="settingsBtn" aria-label="Open settings">
-          <i class="fas fa-cog"></i>
-        </button>
-        <div id="settingsPanel" class="settings-panel">
-          <h4>⚙️ Settings</h4>
-          <label class="toggle">
-            <input type="checkbox" id="darkToggle" />
-            <span class="slider"></span>
-            Dark Mode
-          </label>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="textbooks.html"><i class="fas fa-book"></i> Textbooks</a></li>
+          <li><a href="digest.html"><i class="fas fa-book-open"></i> Digest</a></li>
+          <li><a href="class10.html" target="_blank"><i class="fas fa-folder-open"></i> Class 10 Resources</a></li>
+          <li><a href="qa.html"><i class="fas fa-question-circle"></i> Q&A</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Controls (Settings + Menu) -->
+      <div class="right-controls">
+        <div class="settings-wrapper">
+          <button id="settingsBtn" aria-label="Open settings">
+            <i class="fas fa-cog"></i>
+          </button>
+          <div id="settingsPanel" class="settings-panel">
+            <h4>⚙️ Settings</h4>
+            <label class="toggle">
+              <input type="checkbox" id="darkToggle" />
+              <span class="slider"></span>
+              Dark Mode
+            </label>
+          </div>
+        </div>
+
+        <!-- Hamburger menu -->
+        <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
+          ☰
         </div>
       </div>
+    </div>
+  </header>
 
-      <!-- Hamburger menu -->
-      <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
-        ☰
+  <!-- HERO SECTION -->
+  <section class="hero ai-section">
+    <div class="container hero-content">
+      <h2>Welcome to V.V Maharashtra State Board</h2>
+      <p>Ask any academic question (Classes 4 to 10) and get instant answers powered by AI.</p>
+
+      <div class="search-box">
+        <input type="text" id="questionInput" placeholder="Ask a question..." />
+        <button id="askBtn">Search</button>
       </div>
+
+      <div id="answerContent" class="answer-output"></div>
     </div>
-
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="textbooks.html"><i class="fas fa-book"></i> Textbooks</a></li>
-        <li><a href="digest.html"><i class="fas fa-book-open"></i> Digest</a></li>
-        <li><a href="class10.html" target="_blank"><i class="fas fa-folder-open"></i> Class 10</a></li>
-        <li><a href="qa.html"><i class="fas fa-question-circle"></i> Q&A</a></li>
-        <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-
-  <!-- AI ANSWER SYSTEM -->
-<section class="hero ai-section">
-  <div class="container hero-content">
-    <h2>Welcome to V.V Maharashtra State Board</h2>
-    <p>Ask any academic question (Classes 4 to 10) and get instant answers powered by AI.</p>
-
-    <div class="search-box">
-      <input type="text" id="questionInput" placeholder="Ask a question..."/>
-      <button id="askBtn">Search</button>
-    </div>
-
-    <div id="answerContent" class="answer-output"></div>
-  </div>
-</section>
-
-<!-- Put this at the bottom of body -->
-<script>
-  const searchBtn = document.querySelector('.search-box button');
-  const searchInput = document.querySelector('.search-box input');
-
-  searchBtn.addEventListener('click', async () => {
-    const query = searchInput.value.trim();
-    if (!query) return alert("Please type something.");
-
-    // If it ends with ?, treat as AI question
-    if (query.endsWith('?')) {
-      searchBtn.textContent = "Thinking...";
-      try {
-        const res = await fetch("http://127.0.0.1:8080/ask", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question: query })
-        });
-        const data = await res.json();
-        document.getElementById("answerContent").innerText =
-          data.answer || "No reply";
-      } catch (err) {
-        document.getElementById("answerContent").innerText =
-          "Could not reach AI service.";
-      }
-      searchBtn.textContent = "Search";
-    } else {
-      // For now: simulate search
-      document.getElementById("answerContent").innerText =
-        "Searching for: " + query;
-      // 👉 later redirect to textbooks.html?q=" + encodeURIComponent(query)
-    }
-  });
-</script>
-
-<script src="script.js" defer></script>
-</body>
-</html>
+  </section>
 
 </body>
 </html>
-
