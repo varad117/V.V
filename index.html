@@ -8,8 +8,16 @@
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
   <title>V.V Maharashtra Board</title>
+
+  <script>
+    // Redirect to login if not logged in
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
 </head>
 <body>
+
 <!-- HEADER -->
 <header>
   <div class="container header-content">
@@ -18,10 +26,8 @@
       <div class="logo-text">Maharashtra Board</div>
     </div>
 
-    <!-- Hamburger menu (mobile only) -->
-    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
-      ☰
-    </div>
+    <!-- Hamburger menu -->
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">☰</div>
 
     <nav aria-label="Main navigation">
       <ul>
@@ -30,27 +36,13 @@
         <li><a href="class10.html" target="_blank"><i class="fas fa-folder-open"></i> Class 10 Resources</a></li>
         <li><a href="qa.html"><i class="fas fa-question-circle"></i> Q&A</a></li>
         <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        <li><button onclick="logoutUser()" style="background:none;border:none;color:#4f46e5;cursor:pointer;"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
       </ul>
     </nav>
-
-    <!-- Settings -->
-    <div class="settings-wrapper">
-      <button id="settingsBtn" aria-label="Open settings">
-        <i class="fas fa-cog"></i>
-      </button>
-      <div id="settingsPanel" class="settings-panel">
-        <h4>⚙️ Settings</h4>
-        <label class="toggle">
-          <input type="checkbox" id="darkToggle" />
-          <span class="slider"></span>
-          Dark Mode
-        </label>
-      </div>
-    </div>
   </div>
 </header>
 
-  <!-- AI ANSWER SYSTEM -->
+<!-- AI ANSWER SYSTEM -->
 <section class="hero ai-section">
   <div class="container hero-content">
     <h2>Welcome to V.V Maharashtra State Board</h2>
@@ -65,8 +57,15 @@
   </div>
 </section>
 
-<!-- Put this at the bottom of body -->
 <script>
+  // Logout function
+  function logoutUser() {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("userEmail");
+    window.location.href = "login.html";
+  }
+
+  // AI search
   const searchBtn = document.querySelector('.search-box button');
   const searchInput = document.querySelector('.search-box input');
 
@@ -74,7 +73,6 @@
     const query = searchInput.value.trim();
     if (!query) return alert("Please type something.");
 
-    // If it ends with ?, treat as AI question
     if (query.endsWith('?')) {
       searchBtn.textContent = "Thinking...";
       try {
@@ -84,26 +82,16 @@
           body: JSON.stringify({ question: query })
         });
         const data = await res.json();
-        document.getElementById("answerContent").innerText =
-          data.answer || "No reply";
+        document.getElementById("answerContent").innerText = data.answer || "No reply";
       } catch (err) {
-        document.getElementById("answerContent").innerText =
-          "Could not reach AI service.";
+        document.getElementById("answerContent").innerText = "Could not reach AI service.";
       }
       searchBtn.textContent = "Search";
     } else {
-      // For now: simulate search
-      document.getElementById("answerContent").innerText =
-        "Searching for: " + query;
-      // 👉 later redirect to textbooks.html?q=" + encodeURIComponent(query)
+      document.getElementById("answerContent").innerText = "Searching for: " + query;
     }
   });
 </script>
 
-<script src="script.js" defer></script>
 </body>
 </html>
-
-</body>
-</html>
-
