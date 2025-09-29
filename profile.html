@@ -1,68 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profile – V.V Maharashtra Board</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    margin:0;
-    font-family:"Poppins",sans-serif;
-    background:#f8f9ff;
-    color:#333;
-    transition: background .3s, color .3s;
-  }
-  body.dark {
-    background:#1e1e2f;
-    color:#f5f5f5;
-  }
+body { margin:0; font-family:"Poppins",sans-serif; background:#f8f9ff; color:#333; transition: background .3s, color .3s; }
+body.dark { background:#1e1e2f; color:#f5f5f5; }
 
-  header {
-    background:linear-gradient(135deg,#4f46e5,#7c3aed);
-    padding:16px 24px;
-    display:flex;
-    align-items:center;
-    box-shadow:0 4px 15px rgba(0,0,0,.2);
-  }
-  .logo-circle {
-    width:48px; height:48px; border-radius:50%;
-    background:#fff; color:#4f46e5;
-    font-weight:700; font-size:1.2rem;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 3px 8px rgba(0,0,0,.25);
-  }
-  .logo-text {margin-left:10px; font-size:1.3rem; font-weight:600; color:#fff;}
+/* ====== LOGO ====== */
+.container.header-content { display:flex; align-items:center; padding:16px 24px; }
+.logo { display:flex; align-items:center; gap:15px; }
+.logo-circle {
+  width:60px; height:60px; border-radius:50%;
+  background:linear-gradient(135deg,#baa1a1 0%,#4f46e5 100%);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 15px rgba(0,0,0,.3);
+}
+.logo-circle span {
+  font-size:1.8rem; font-weight:800;
+  font-family:"Roboto Slab", serif; color:#000; letter-spacing:1px;
+}
+.logo-text {
+  font-size:2rem; font-weight:700;
+  font-family:"Roboto Slab", serif; color:#301864;
+}
 
-  .profile-section {padding:40px 20px; display:flex; justify-content:center;}
-  .profile-container {
-    max-width:700px; width:100%; background:#fff;
-    padding:30px; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,.1);
-    transition:background .3s,color .3s;
-  }
-  body.dark .profile-container {background:#2b2b3c; color:#fff;}
+/* PROFILE CONTAINER */
+.profile-section { padding:40px 20px; display:flex; justify-content:center; }
+.profile-container {
+  max-width:500px; width:100%; background:#fff; padding:30px; border-radius:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,.1); transition:background .3s,color .3s;
+}
+body.dark .profile-container { background:#2b2b3c; color:#fff; }
 
-  .section-title {text-align:center; margin-bottom:25px; font-size:1.6rem; font-weight:700;}
-  .profile-card {text-align:center; margin-bottom:30px;}
-  .profile-info p {margin:8px 0; font-size:1.05rem;}
+.section-title { text-align:center; margin-bottom:25px; font-size:1.6rem; font-weight:700; }
+.profile-card { text-align:center; margin-bottom:30px; }
+.profile-info p { margin:8px 0; font-size:1.05rem; }
 
-  .btn {
-    margin:8px; padding:10px 22px; border:none; border-radius:25px;
-    background:linear-gradient(135deg,#4f46e5,#7c3aed);
-    color:#fff; font-weight:600; cursor:pointer; text-decoration:none;
-    display:inline-block; transition:all .3s;
-    box-shadow:0 4px 10px rgba(0,0,0,.15);
-  }
-  .btn:hover {background:linear-gradient(135deg,#6b63ff,#5b34e5); transform:translateY(-3px);}
-
-  footer {text-align:center; padding:20px; color:#666;}
+.input-field { margin:10px 0; padding:10px 12px; width:100%; border:1px solid #ccc; border-radius:8px; font-size:1rem; }
+.btn { margin:8px; padding:10px 22px; border:none; border-radius:25px;
+  background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#fff; font-weight:600; cursor:pointer;
+  display:inline-block; transition:all .3s; box-shadow:0 4px 10px rgba(0,0,0,.15); }
+.btn:hover { background:linear-gradient(135deg,#6b63ff,#5b34e5); transform:translateY(-3px); }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo-circle">V.V</div>
-  <div class="logo-text">Maharashtra Board</div>
+  <div class="container header-content">
+    <div class="logo">
+      <div class="logo-circle"><span>V.V</span></div>
+      <div class="logo-text">Maharashtra Board</div>
+    </div>
+  </div>
 </header>
 
 <section class="profile-section">
@@ -71,31 +65,21 @@
 
     <div class="profile-card">
       <div class="profile-info">
-        <p><strong>Name:</strong> <span id="userName">John Doe</span></p>
-        <p><strong>Email:</strong> <span id="userEmail">john@example.com</span></p>
+        <p><strong>Email:</strong> <span id="userEmail">guest@example.com</span></p>
       </div>
-      <button class="btn" onclick="editProfile()">Edit Profile</button>
-      <button class="btn" onclick="logout()">Logout</button>
+
+      <div id="nameStdContainer"></div>
+      <div id="authBtnContainer"></div>
     </div>
 
     <div id="editForm" style="display:none; margin-top:20px;">
-      <input type="text" id="editName" placeholder="Enter Name">
-      <input type="email" id="editEmail" placeholder="Enter Email">
+      <input type="text" id="editName" placeholder="Enter Name" class="input-field">
+      <input type="text" id="editStd" placeholder="Enter Standard/Class" class="input-field">
       <button class="btn" onclick="saveProfile()">Save</button>
       <button class="btn" onclick="cancelEdit()">Cancel</button>
     </div>
 
-    <div style="margin-top:40px;">
-      <h3>📥 My Downloads</h3>
-      <div class="download-list">
-        <a href="pdfs/chapter1.pdf" download class="btn">Chapter 1 – Numbers</a>
-        <a href="pdfs/chapter2.pdf" download class="btn">Chapter 2 – Addition</a>
-        <a href="pdfs/science1.pdf" download class="btn">Science – Plants</a>
-      </div>
-    </div>
-
-    <!-- Back Button -->
-    <div style="text-align:center; margin-top:50px;">
+    <div style="text-align:center; margin-top:40px;">
       <button class="btn" onclick="goBack()">← Back</button>
       <label style="display:block; margin-top:15px; font-size:.95rem;">
         <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()"> Dark Mode
@@ -105,45 +89,87 @@
   </div>
 </section>
 
-<footer>
-  <p>© 2025 V.V</p>
-</footer>
-
 <script>
-  // === PROFILE EDIT FUNCTIONS ===
-  function editProfile(){
-    document.getElementById("editForm").style.display="block";
-    document.getElementById("editName").value=document.getElementById("userName").innerText;
-    document.getElementById("editEmail").value=document.getElementById("userEmail").innerText;
-  }
-  function cancelEdit(){document.getElementById("editForm").style.display="none";}
-  function saveProfile(){
-    const n=document.getElementById("editName").value.trim();
-    const e=document.getElementById("editEmail").value.trim();
-    if(n && e){
-      document.getElementById("userName").innerText=n;
-      document.getElementById("userEmail").innerText=e;
-      cancelEdit(); alert("Profile updated!");
-    } else alert("Fill Name & Email");
-  }
-  function logout(){
-    alert("Logged out!"); window.location.href="textbooks.html";
-  }
-  function goBack(){
-    window.history.back();
+  // ===== LOGIN & PROFILE DATA =====
+  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+  const storedEmail = localStorage.getItem("userEmail") || "guest@example.com";
+  const storedName = localStorage.getItem("userName") || "";
+  const storedStd = localStorage.getItem("userStd") || "";
+
+  document.getElementById("userEmail").innerText = storedEmail;
+
+  const nameStdContainer = document.getElementById("nameStdContainer");
+  const authBtnContainer = document.getElementById("authBtnContainer");
+
+  if(isLoggedIn){
+    if(storedName){
+      // Show saved name & std with edit button
+      nameStdContainer.innerHTML = `<p><strong>Name:</strong> ${storedName}</p>
+                                    <p><strong>Std:</strong> ${storedStd}</p>
+                                    <button class="btn" onclick="editProfile()">Edit</button>`;
+      const logoutBtn = document.createElement("button");
+      logoutBtn.className = "btn";
+      logoutBtn.innerText = "Logout";
+      logoutBtn.onclick = logoutUser;
+      authBtnContainer.appendChild(logoutBtn);
+    } else {
+      // No name saved, show input fields directly
+      document.getElementById("editForm").style.display = "block";
+      const logoutBtn = document.createElement("button");
+      logoutBtn.className = "btn";
+      logoutBtn.innerText = "Logout";
+      logoutBtn.onclick = logoutUser;
+      authBtnContainer.appendChild(logoutBtn);
+    }
+  } else {
+    // Not logged in → show login button
+    const loginBtn = document.createElement("button");
+    loginBtn.className = "btn";
+    loginBtn.innerText = "Login";
+    loginBtn.onclick = () => { window.location.href="login.html"; };
+    authBtnContainer.appendChild(loginBtn);
   }
 
-  // === DARK MODE PERSISTENCE ===
+  // ===== PROFILE EDIT FUNCTIONS =====
+  function editProfile(){
+    document.getElementById("editForm").style.display = "block";
+    document.getElementById("editName").value = storedName;
+    document.getElementById("editStd").value = storedStd;
+  }
+
+  function cancelEdit(){ document.getElementById("editForm").style.display="none"; }
+
+  function saveProfile(){
+    const name = document.getElementById("editName").value.trim();
+    const std = document.getElementById("editStd").value.trim();
+    if(name && std){
+      localStorage.setItem("userName", name);
+      localStorage.setItem("userStd", std);
+      alert("Profile saved!");
+      window.location.reload();
+    } else alert("Fill Name and Standard!");
+  }
+
+  function logoutUser(){
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userStd");
+    localStorage.removeItem("userEmail");
+    alert("Logged out!");
+    window.location.reload();
+  }
+
+  function goBack(){ window.history.back(); }
+
+  // ===== DARK MODE =====
   const darkToggle = document.getElementById("darkModeToggle");
   if(localStorage.getItem("darkMode") === "true"){
     document.body.classList.add("dark");
     darkToggle.checked = true;
   }
-
   function toggleDarkMode(){
     document.body.classList.toggle("dark");
-    const isDark = document.body.classList.contains("dark");
-    localStorage.setItem("darkMode", isDark);
+    localStorage.setItem("darkMode", document.body.classList.contains("dark"));
   }
 </script>
 
