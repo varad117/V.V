@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V.V Maharashtra Board – Login</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+    .container {
+      background: #fff;
+      width: 350px;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+    .logo-circle {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: #4f46e5; color: #fff;
+      font-weight: bold; font-size: 1.4rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 10px auto;
+    }
+    .input-group { margin-bottom: 18px; text-align: left; }
+    .input-group label { font-size: 0.9rem; font-weight: 500; display:block; margin-bottom:6px; }
+    .input-group input {
+      width: 100%; padding: 12px;
+      border: 1px solid #ccc; border-radius: 8px;
+      font-size: 1rem;
+    }
+    .btn {
+      width: 100%; padding: 12px;
+      background: linear-gradient(135deg,#4f46e5,#7c3aed);
+      color: #fff; border: none; border-radius: 8px;
+      font-size: 1rem; font-weight: 600; cursor: pointer;
+    }
+    .btn:hover { background: linear-gradient(135deg,#6b63ff,#5b34e5); }
+    .extra-links { margin-top: 15px; font-size: 0.9rem; }
+    .extra-links a { color: #4f46e5; text-decoration: none; cursor: pointer; }
+    .extra-links a:hover { text-decoration: underline; }
+  </style>
+
+  <script>
+    // Redirect logged-in users to index
+    if (localStorage.getItem("loggedIn") === "true") {
+      window.location.href = "index.html";
+    }
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo-circle">V.V</div>
+  <h2 id="formTitle">Login</h2>
+
+  <!-- LOGIN FORM -->
+  <form id="loginForm" onsubmit="return loginUser(event)">
+    <div class="input-group">
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+    </div>
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
+    </div>
+    <button type="submit" class="btn">Login</button>
+  </form>
+
+  <!-- SIGN UP FORM -->
+  <form id="signupForm" onsubmit="return signupUser(event)" style="display:none;">
+    <div class="input-group">
+      <label>Full Name</label>
+      <input type="text" id="newName" required />
+    </div>
+    <div class="input-group">
+      <label>Email</label>
+      <input type="email" id="newEmail" required />
+    </div>
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" id="newPassword" required />
+    </div>
+    <button type="submit" class="btn">Sign Up</button>
+  </form>
+
+  <div class="extra-links" id="linksLogin">
+    <p>Don’t have an account? <a onclick="showSignup()">Sign Up</a></p>
+  </div>
+  <div class="extra-links" id="linksSignup" style="display:none;">
+    <p>Already have an account? <a onclick="showLogin()">Login</a></p>
+  </div>
+</div>
+
+<script>
+  function loginUser(event){
+    event.preventDefault();
+    const email = document.getElementById("email").value.trim();
+    const pass = document.getElementById("password").value.trim();
+
+    if(email && pass){
+      localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("userEmail", email);
+      alert("Login successful!");
+      window.location.href="index.html";
+    } else {
+      alert("Enter email and password.");
+    }
+  }
+
+  function signupUser(event){
+    event.preventDefault();
+    const name = document.getElementById("newName").value.trim();
+    const email = document.getElementById("newEmail").value.trim();
+    const pass = document.getElementById("newPassword").value.trim();
+
+    if(name && email && pass){
+      alert("Account created! Now login.");
+      showLogin();
+    } else {
+      alert("Fill all fields.");
+    }
+  }
+
+  function showSignup(){
+    document.getElementById("loginForm").style.display = "none";
+    document.getElementById("signupForm").style.display = "block";
+    document.getElementById("linksLogin").style.display = "none";
+    document.getElementById("linksSignup").style.display = "block";
+    document.getElementById("formTitle").innerText = "Sign Up";
+  }
+
+  function showLogin(){
+    document.getElementById("loginForm").style.display = "block";
+    document.getElementById("signupForm").style.display = "none";
+    document.getElementById("linksLogin").style.display = "block";
+    document.getElementById("linksSignup").style.display = "none";
+    document.getElementById("formTitle").innerText = "Login";
+  }
+</script>
+
+</body>
+</html>
