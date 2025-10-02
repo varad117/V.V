@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 Classes 4-10: Subject Notes Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    color: #2d3748;
+}
+header {
+    background: linear-gradient(135deg, #544dd1 0%, #7c3aed 100%);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.logo-circle {
+    width: 55px; height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c3b8ff 0%, #4f46e5 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; font-weight: 800; color: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+header h1 {
+    margin: 0; color: #fff; font-size: 1.5rem; font-weight: 600;
+}
+main {
+    max-width: 950px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+h2 {
+    margin: 0 0 28px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+    background: #b48bff;
+    padding: 6px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.class-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-bottom: 28px;
+}
+.btn-shared {
+    min-width: 180px;
+    padding: 15px 0;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: all .3s;
+}
+.btn-shared:hover {
+    background: linear-gradient(135deg, #6b63ff 0%, #5b34e5 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+#backBtn {
+    margin-top: 25px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background .3s;
+}
+#backBtn:hover { background: #372ea0; }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo-circle">V.V</div>
+    <h1>📚 Classes 4-10: Subject Notes Hub 📝</h1>
+</header>
+
+<main>
+    <h2 id="sectionTitle">Select Class</h2>
+    <div id="levelContent"></div>
+    <button id="backBtn">← Back</button>
+</main>
+
+<script>
+const notesData = {
+  "Class 4": {"EVS Part-1":"https://drive.google.com/file/d/xxxx/view?usp=drive_link","EVS Part-2":"https://drive.google.com/file/d/yyyy/view?usp=drive_link","Marathi":"https://drive.google.com/file/d/zzzz/view?usp=drive_link","English":"https://drive.google.com/file/d/aaaa/view?usp=drive_link","Mathematics":"https://drive.google.com/file/d/bbbb/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/cccc/view?usp=drive_link"},
+  "Class 5": {"Marathi":"https://drive.google.com/file/d/dddd/view?usp=drive_link","English":"https://drive.google.com/file/d/eeee/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/ffff/view?usp=drive_link","Mathematics":"https://drive.google.com/file/d/gggg/view?usp=drive_link","EVS Part-1":"https://drive.google.com/file/d/hhhh/view?usp=drive_link","EVS Part-2":"https://drive.google.com/file/d/iiii/view?usp=drive_link"},
+  "Class 6": {"Marathi":"https://drive.google.com/file/d/jjjj/view?usp=drive_link","Mathematics":"https://drive.google.com/file/d/kkkk/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/llll/view?usp=drive_link","English":"https://drive.google.com/file/d/mmmm/view?usp=drive_link","General Science":"https://drive.google.com/file/d/nnnn/view?usp=drive_link","History and Civics":"https://drive.google.com/file/d/oooo/view?usp=drive_link","Geography":"https://drive.google.com/file/d/pppp/view?usp=drive_link"},
+  "Class 7": {"Marathi":"https://drive.google.com/file/d/qqqq/view?usp=drive_link","Mathematics":"https://drive.google.com/file/d/rrrr/view?usp=drive_link","English":"https://drive.google.com/file/d/ssss/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/tttt/view?usp=drive_link","General Science":"https://drive.google.com/file/d/uuuu/view?usp=drive_link","History and Civics":"https://drive.google.com/file/d/vvvv/view?usp=drive_link","Geography":"https://drive.google.com/file/d/wwww/view?usp=drive_link"},
+  "Class 8": {"Marathi":"https://drive.google.com/file/d/xxxx1/view?usp=drive_link","Mathematics":"https://drive.google.com/file/d/xxxx2/view?usp=drive_link","English":"https://drive.google.com/file/d/xxxx3/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/xxxx4/view?usp=drive_link","General Science":"https://drive.google.com/file/d/xxxx5/view?usp=drive_link","History and Civics":"https://drive.google.com/file/d/xxxx6/view?usp=drive_link","Geography":"https://drive.google.com/file/d/xxxx7/view?usp=drive_link"},
+  "Class 9": {"Marathi":"https://drive.google.com/file/d/xxxx8/view?usp=drive_link","Mathematics Part-1":"https://drive.google.com/file/d/xxxx9/view?usp=drive_link","Mathematics Part-2":"https://drive.google.com/file/d/xxxx10/view?usp=drive_link","English":"https://drive.google.com/file/d/xxxx11/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/xxxx12/view?usp=drive_link","Science and Technology":"https://drive.google.com/file/d/xxxx13/view?usp=drive_link","History and Civics":"https://drive.google.com/file/d/xxxx14/view?usp=drive_link","Geography":"https://drive.google.com/file/d/xxxx15/view?usp=drive_link"},
+  "Class 10": {"Marathi":"https://drive.google.com/file/d/xxxx16/view?usp=drive_link","Mathematics Part-1":"https://drive.google.com/file/d/1oqEOpYUUGjwiO8upDCKenG7P-bn3mvha/view?usp=drive_link","Mathematics Part-2":"https://drive.google.com/file/d/xxxx18/view?usp=drive_link","English":"https://drive.google.com/file/d/xxxx19/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/xxxx20/view?usp=drive_link","Science and Technology Part-1":"https://drive.google.com/file/d/xxxx21/view?usp=drive_link","Science and Technology Part-2":"https://drive.google.com/file/d/xxxx22/view?usp=drive_link","History and Civics":"https://drive.google.com/file/d/xxxx23/view?usp=drive_link","Geography":"https://drive.google.com/file/d/xxxx24/view?usp=drive_link"}
+};
+
+const levelContent = document.getElementById("levelContent");
+const sectionTitle = document.getElementById("sectionTitle");
+const backBtn = document.getElementById("backBtn");
+
+let currentClass = "";
+let currentView = "classes";
+
+function showClasses() {
+    currentView = "classes";
+    currentClass = "";
+    sectionTitle.textContent = "Select Class";
+    levelContent.innerHTML = "";
+    backBtn.style.display = "inline-block"; // Back button visible on class page
+    backBtn.onclick = () => {
+        window.location.href = "index.html"; // Go back to main home page
+    };
+
+    const row = document.createElement("div");
+    row.className = "class-row";
+
+    Object.keys(notesData).forEach(cls => {
+        const btn = document.createElement("button");
+        btn.textContent = cls;
+        btn.className = "btn-shared";
+        btn.onclick = () => showSubjects(cls);
+        row.appendChild(btn);
+    });
+
+    levelContent.appendChild(row);
+}
+
+function showSubjects(className) {
+    currentView = "subjects";
+    currentClass = className;
+    sectionTitle.textContent = `${className} Subjects`;
+    levelContent.innerHTML = "";
+
+    const subjects = notesData[className];
+    const row = document.createElement("div");
+    row.className = "class-row";
+
+    for(const subject in subjects){
+        let link = subjects[subject].replace('/view?usp=drive_link','/preview');
+        const btn = document.createElement("button");
+        btn.textContent = subject + " 🔗";
+        btn.className = "btn-shared";
+        btn.onclick = () => window.open(link, "_blank");
+        row.appendChild(btn);
+    }
+
+    const vipBtn = document.createElement("button");
+    vipBtn.textContent = "⭐ VIP Notes";
+    vipBtn.className = "btn-shared";
+    vipBtn.onclick = () => showVIPNotes(className);
+    row.appendChild(vipBtn);
+
+    levelContent.appendChild(row);
+
+    backBtn.onclick = () => showClasses(); // Back to class list
+}
+
+function showVIPNotes(className) {
+    currentView = "vip";
+    sectionTitle.textContent = `${className} VIP Notes`;
+    levelContent.innerHTML = "";
+    backBtn.style.display = "inline-block";
+
+    const subjects = notesData[className];
+    const row = document.createElement("div");
+    row.className = "class-row";
+
+    for(const subject in subjects){
+        let link = subjects[subject].replace('/view?usp=drive_link','/preview');
+        const btn = document.createElement("button");
+        btn.textContent = subject + " 🔗";
+        btn.className = "btn-shared";
+        btn.onclick = () => window.open(link, "_blank");
+        row.appendChild(btn);
+    }
+
+    levelContent.appendChild(row);
+
+    backBtn.onclick = () => showSubjects(className); // Back to subject list
+}
+
+// Initialize
+showClasses();
+</script>
+
+</body>
+</html>
