@@ -1,177 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile – V.V Maharashtra Board</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V.V Maharashtra Board</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Custom styles for the layout */
+        body {
+            background-color: #f0f2f5; /* Light background for the whole page */
+        }
+        .profile-container {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 30px;
+            /* Changed to white background for form area for better readability and contrast */
+            background-color: #ffffff; 
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        .sidebar {
+            padding-right: 20px;
+        }
+        .profile-pic-container {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px 0;
+        }
+        
+        /* --- PROFILE PICTURE STYLING (MATCHING SCREENSHOT) --- */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            /* Light gray background color from the silhouette image */
+            background-color: #e9ecef; 
+            margin: 0 auto 15px;
+            display: block; 
+            /* Thin white border around the outside circle */
+            border: 5px solid #ffffff;
+            box-shadow: 0 0 0 1px #ccc; /* Subtle outer line */
+            
+            /* Add the silhouette image/icon as a background-image */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23b8b8b8"><circle cx="12" cy="7.5" r="3.5"/><path d="M12 11c-2.33 0-7 1.17-7 3.5V17h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>');
+            background-size: 80%; /* Adjust size of the silhouette */
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        /* --- END PROFILE PICTURE STYLING --- */
 
-<style>
-body { margin:0; font-family:"Poppins",sans-serif; background:#f8f9ff; color:#333; transition: background .3s, color .3s; }
-body.dark { background:#1e1e2f; color:#f5f5f5; }
-
-/* ====== LOGO ====== */
-.container.header-content { display:flex; align-items:center; padding:16px 24px; }
-.logo { display:flex; align-items:center; gap:15px; }
-.logo-circle {
-  width:60px; height:60px; border-radius:50%;
-  background:linear-gradient(135deg,#baa1a1 0%,#4f46e5 100%);
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 4px 15px rgba(0,0,0,.3);
-}
-.logo-circle span {
-  font-size:1.8rem; font-weight:800;
-  font-family:"Roboto Slab", serif; color:#000; letter-spacing:1px;
-}
-.logo-text {
-  font-size:2rem; font-weight:700;
-  font-family:"Roboto Slab", serif; color:#301864;
-}
-
-/* PROFILE CONTAINER */
-.profile-section { padding:40px 20px; display:flex; justify-content:center; }
-.profile-container {
-  max-width:500px; width:100%; background:#fff; padding:30px; border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,.1); transition:background .3s,color .3s;
-}
-body.dark .profile-container { background:#2b2b3c; color:#fff; }
-
-.section-title { text-align:center; margin-bottom:25px; font-size:1.6rem; font-weight:700; }
-.profile-card { text-align:center; margin-bottom:30px; }
-.profile-info p { margin:8px 0; font-size:1.05rem; }
-
-.input-field { margin:10px 0; padding:10px 12px; width:100%; border:1px solid #ccc; border-radius:8px; font-size:1rem; }
-.btn { margin:8px; padding:10px 22px; border:none; border-radius:25px;
-  background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#fff; font-weight:600; cursor:pointer;
-  display:inline-block; transition:all .3s; box-shadow:0 4px 10px rgba(0,0,0,.15); }
-.btn:hover { background:linear-gradient(135deg,#6b63ff,#5b34e5); transform:translateY(-3px); }
-</style>
+        header {
+            background: linear-gradient(135deg, #544dd1 0%, #7c3aed 100%);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            color: white; 
+        }
+        header h1 {
+            font-size: 1.5rem;
+        }
+        .logo-circle {
+      width: 55px; height: 55px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c3b8ff 0%, #4f46e5 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; font-weight: 800; color: #000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+        
+        /* --- Sidebar Sections --- */
+        .sidebar-section {
+            padding: 15px;
+            margin-bottom: 20px;
+            /* Sidebar section background color adjusted to be light gray for contrast on white container */
+            background-color: #f8f9fa; 
+            border-radius: 5px;
+        }
+        .sidebar-section h6, .sidebar-section a, .sidebar-section p, .activity-label {
+            color: #343a40 !important; /* Ensure text is dark and visible */
+        }
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 0.95rem;
+        }
+        /* Form Styling */
+        .form-label {
+            font-weight: 600;
+            color: #343a40;
+        }
+        /* Tab Styling */
+        .nav-tabs .nav-link {
+            border-bottom: 2px solid transparent;
+            color: #7c3aed;
+            font-weight: 600;
+        }
+        .nav-tabs .nav-link.active {
+            color: #7c3aed;
+            border-bottom-color: #7c3aed !important;
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <div class="container header-content">
-    <div class="logo">
-      <div class="logo-circle"><span>V.V</span></div>
-      <div class="logo-text">Maharashtra Board</div>
-    </div>
-  </div>
+  <div class="logo-circle">V.V</div>
+  <h1>Maharashtra Board Digests</h1>
 </header>
 
-<section class="profile-section">
-  <div class="profile-container">
-    <h2 class="section-title">My Profile</h2>
 
-    <div class="profile-card">
-      <div class="profile-info">
-        <p><strong>Email:</strong> <span id="userEmail">guest@example.com</span></p>
-      </div>
-
-      <div id="nameStdContainer"></div>
-      <div id="authBtnContainer"></div>
+<div class="container profile-container">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+        <h1 class="h3 fw-bold">User name</h1>
+        
+        <div class="logo-wrapper" style="width: 55px; height: 55px; border-radius: 50%; background-color: #1a73e8;"></div>
     </div>
 
-    <div id="editForm" style="display:none; margin-top:20px;">
-      <input type="text" id="editName" placeholder="Enter Name" class="input-field">
-      <input type="text" id="editStd" placeholder="Enter Standard/Class" class="input-field">
-      <button class="btn" onclick="saveProfile()">Save</button>
-      <button class="btn" onclick="cancelEdit()">Cancel</button>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="sidebar">
+                <div class="profile-pic-container">
+                    <div class="profile-pic">
+                        </div>
+                    <small class="text-muted">Upload a different photo...</small>
+                    <div class="mt-2">
+                        <input type="file" class="form-control-file d-none" id="fileUpload">
+                        <label for="fileUpload" class="btn btn-sm btn-light border me-2">Choose File</label>
+                        <span class="text-muted small">No file chosen</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h6 class="mb-2 fw-bold text-dark">Website</h6>
+                    <a href="http://bootripets.com" class="text-decoration-none text-primary">bootripets.com</a>
+                </div>
+
+                <h5 class="mb-3 text-dark fw-bold">Activity</h5>
+                <div class="sidebar-section mb-4">
+                    <div class="activity-item">
+                        <span class="activity-label">Shares</span>
+                        <span class="fw-bold">125</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-label">Likes</span>
+                        <span class="fw-bold">13</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-label">Posts</span>
+                        <span class="fw-bold">37</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-label">Followers</span>
+                        <span class="fw-bold">78</span>
+                    </div>
+                </div>
+
+                <h5 class="mb-2 text-dark fw-bold">Social Media</h5>
+                <div class="sidebar-section">
+                    <p class="text-muted small mb-0">Links/Icons go here...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <ul class="nav nav-tabs mb-4">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+            </ul>
+
+            <form>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label for="firstName" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="first name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="last name">
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="enter phone">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input type="tel" class="form-control" id="mobile" placeholder="enter mobile number">
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="you@email.com">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="somewhere">
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="password">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="verifyPassword" class="form-label">Verify</label>
+                        <input type="password" class="form-control" id="verifyPassword" placeholder="password2">
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-success me-2">
+                        <i class="fas fa-save me-1"></i> Save
+                    </button>
+                    <button type="reset" class="btn btn-light border text-secondary">
+                        <i class="fas fa-redo-alt me-1"></i> Reset
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 
-    <div style="text-align:center; margin-top:40px;">
-      <button class="btn" onclick="goBack()">← Back</button>
-      <label style="display:block; margin-top:15px; font-size:.95rem;">
-        <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()"> Dark Mode
-      </label>
-    </div>
-
-  </div>
-</section>
-
-<script>
-  // ===== LOGIN & PROFILE DATA =====
-  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
-  const storedEmail = localStorage.getItem("userEmail") || "guest@example.com";
-  const storedName = localStorage.getItem("userName") || "";
-  const storedStd = localStorage.getItem("userStd") || "";
-
-  document.getElementById("userEmail").innerText = storedEmail;
-
-  const nameStdContainer = document.getElementById("nameStdContainer");
-  const authBtnContainer = document.getElementById("authBtnContainer");
-
-  if(isLoggedIn){
-    if(storedName){
-      // Show saved name & std with edit button
-      nameStdContainer.innerHTML = `<p><strong>Name:</strong> ${storedName}</p>
-                                    <p><strong>Std:</strong> ${storedStd}</p>
-                                    <button class="btn" onclick="editProfile()">Edit</button>`;
-      const logoutBtn = document.createElement("button");
-      logoutBtn.className = "btn";
-      logoutBtn.innerText = "Logout";
-      logoutBtn.onclick = logoutUser;
-      authBtnContainer.appendChild(logoutBtn);
-    } else {
-      // No name saved, show input fields directly
-      document.getElementById("editForm").style.display = "block";
-      const logoutBtn = document.createElement("button");
-      logoutBtn.className = "btn";
-      logoutBtn.innerText = "Logout";
-      logoutBtn.onclick = logoutUser;
-      authBtnContainer.appendChild(logoutBtn);
-    }
-  } else {
-    // Not logged in → show login button
-    const loginBtn = document.createElement("button");
-    loginBtn.className = "btn";
-    loginBtn.innerText = "Login";
-    loginBtn.onclick = () => { window.location.href="login.html"; };
-    authBtnContainer.appendChild(loginBtn);
-  }
-
-  // ===== PROFILE EDIT FUNCTIONS =====
-  function editProfile(){
-    document.getElementById("editForm").style.display = "block";
-    document.getElementById("editName").value = storedName;
-    document.getElementById("editStd").value = storedStd;
-  }
-
-  function cancelEdit(){ document.getElementById("editForm").style.display="none"; }
-
-  function saveProfile(){
-    const name = document.getElementById("editName").value.trim();
-    const std = document.getElementById("editStd").value.trim();
-    if(name && std){
-      localStorage.setItem("userName", name);
-      localStorage.setItem("userStd", std);
-      alert("Profile saved!");
-      window.location.reload();
-    } else alert("Fill Name and Standard!");
-  }
-
-  function logoutUser(){
-    localStorage.removeItem("loggedIn");
-    localStorage.removeItem("userName");
-    localStorage.removeItem("userStd");
-    localStorage.removeItem("userEmail");
-    alert("Logged out!");
-    window.location.reload();
-  }
-
-  function goBack(){ window.history.back(); }
-
-  // ===== DARK MODE =====
-  const darkToggle = document.getElementById("darkModeToggle");
-  if(localStorage.getItem("darkMode") === "true"){
-    document.body.classList.add("dark");
-    darkToggle.checked = true;
-  }
-  function toggleDarkMode(){
-    document.body.classList.toggle("dark");
-    localStorage.setItem("darkMode", document.body.classList.contains("dark"));
-  }
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
