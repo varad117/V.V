@@ -1,105 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>V.V Maharashtra Board - Class 10 Resources</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-      color: #2d3748;
-    }
-    header {
-      background: linear-gradient(135deg, #544dd1 0%, #7c3aed 100%);
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-    .logo-circle {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #c3b8ff 0%, #4f46e5 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    header h1 {
-      margin: 0;
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-    main {
-      max-width: 950px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 50px 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    h2 {
-      margin: 0 0 28px;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #000;
-      background: #b48bff;
-      padding: 6px 20px;
-      border-radius: 8px;
-      display: inline-block;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .class-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 22px;
-      margin-bottom: 28px;
-    }
-    .btn-shared {
-      width: 220px;
-      padding: 15px 0;
-      border: none;
-      border-radius: 50px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #fff;
-      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-      cursor: pointer;
-      transition: all .3s;
-    }
-    .btn-shared:hover {
-      background: linear-gradient(135deg, #6b63ff 0%, #5b34e5 100%);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-    }
-    #backBtn {
-      margin-top: 25px;
-      padding: 10px 25px;
-      font-size: 1rem;
-      background: #4f46e5;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: none;
-      transition: background .3s;
-    }
-    #backBtn:hover {
-      background: #372ea0;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>V.V Maharashtra Board - Class 10 Resources</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Reset default margins and paddings */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    color: #2d3748;
+  }
+
+  header {
+    background: linear-gradient(135deg, #544dd1 0%, #7c3aed 100%);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .logo-circle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c3b8ff 0%, #4f46e5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  header h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  main {
+    max-width: 950px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0 0 28px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+    background: #b48bff;
+    padding: 6px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .class-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-bottom: 28px;
+  }
+
+  .btn-shared {
+    width: 220px;
+    padding: 15px 0;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: all .3s;
+  }
+
+  .btn-shared:hover {
+    background: linear-gradient(135deg, #6b63ff 0%, #5b34e5 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  }
+
+  #backBtn {
+    margin-top: 25px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    transition: background .3s;
+  }
+
+  #backBtn:hover {
+    background: #372ea0;
+  }
+</style>
 </head>
 <body>
 
@@ -122,53 +138,33 @@ const sectionTitle = document.getElementById("sectionTitle");
 let currentView = "main";
 let currentSubject = "";
 
-// ✅ Your PYQ links
+// Previous Year Questions links
 const pyqLinks = {
   "Class 10 PYQ": {
-    Marathi: {
-      "2021": "", "2022": "https://drive.google.com/file/d/1GAJxEM5VHNXIVsYr8FX_3lngmOEeFxn1/view?usp=drive_link", "2023": "", "2024": "https://drive.google.com/file/d/11gQp5QO1wAt_uT7Jiad9Hpjq6VkHVqB_/view?usp=drive_link", "2025": "https://drive.google.com/file/d/1mQR6rUmpnLQERDqUOvIyE6VCisevBblo/view?usp=drive_link"
-    },
-    "Mathematics Part-1": {
-      "2021": "", "2022": "https://drive.google.com/file/d/15cGFa11_l-OVfKwlAZkdxUZ1xNccUBlW/view?usp=drive_link", "2023": "https://drive.google.com/file/d/1xGmo77WDUHkLKEx_Jce7Lim2Ue7GNG1L/view?usp=drive_link", "2024": "https://drive.google.com/file/d/1hb9SSkefgxEVRxEZAULiG3OYSYjqaiGo/view?usp=drive_link", "2025": "https://drive.google.com/file/d/1l_7P34X0MDOYvDpEMb8WuIDBGLjrK0_v/view?usp=drive_link"
-    },
-    "Mathematics Part-2": {
-      "2021": "", "2022": "https://drive.google.com/file/d/1xyvQ2oXrgrtnEti1MVNZ6IoCOWZ84WWj/view?usp=drive_link", "2023": "", "2024": "https://drive.google.com/file/d/1BHQB54L6ssO4LfimF4zeXE1jBd0cu1KH/view?usp=drive_link", "2025": "https://drive.google.com/file/d/14I8zgUU94PyLSDtdcNwSHAg82pQAMVsQ/view?usp=drive_link"
-    },
-    English: {
-      "2021": "", "2022": "https://drive.google.com/file/d/1xBxph21Xw8VxdyyJNHyIDH_rWwX5LK76/view?usp=drive_link", "2023": "https://drive.google.com/file/d/1FyRg4QpaAPIVS52O33mOjD59crDLY_DV/view?usp=drive_link", "2024": "https://drive.google.com/file/d/1qR75GgdVsRpalxSBnHo3bqNAL5q7MPu9/view?usp=drive_link", "2025": "https://drive.google.com/file/d/1QqHVJeCh02SnDYlZ-tP9su_eEsfLwSJJ/view?usp=drive_link"
-    },
-    Hindi: {
-      "2021": "", "2022": "https://drive.google.com/file/d/1GICrwEvXsvaIpEydboa3UhIhY-x_SLRc/view?usp=drive_link", "2023": "https://drive.google.com/file/d/1m93W3GnkKVMtjmKPcnzVE6MSXX10KGwx/view?usp=drive_link", "2024": "https://drive.google.com/file/d/1bjCFQIddKrI2p3pouNf3nGfssVmeWiuR/view?usp=drive_link", "2025": "https://drive.google.com/file/d/13JD6LcLcd2wSTnfHQchba9tLl2S2S4sF/view?usp=drive_link"
-    },
-    "Science and Technology Part-1": {
-      "2021": "", "2022": "https://drive.google.com/file/d/1j3nZDDjHl5_I47GHKwU0BLUqOqa6cATi/view?usp=drive_link", "2023": "https://drive.google.com/file/d/18DWlYYK2q14lTDBaTgC1OLq21CskqPLs/view?usp=drive_link", "2024": "https://drive.google.com/file/d/1wk7fZnXeHmn--iy-kDF_kFceT35_Hyib/view?usp=drive_link", "2025": "https://drive.google.com/file/d/18DA1ubBMqmUb5rEoebh0LKfH232Gy6eu/view?usp=drive_link"
-    },
-    "Science and Technology Part-2": {
-      "2021": "", "2022": "https://drive.google.com/file/d/1DMn5Sv3io9zuYb8xq86exbpeZIsF49BV/view?usp=drive_link", "2023": "https://drive.google.com/file/d/1D9jS0fTSVGmm5JdyKjUDSKX1tFgFa1Ll/view?usp=drive_link", "2024": "https://drive.google.com/file/d/1YTcuXf8ji3YP34naDTfFNViYP6oQfDFA/view?usp=drive_link", "2025": "https://drive.google.com/file/d/15WkYuo5rM4-XbUtSVvBNfiMmY5K8cWaW/view?usp=drive_link"
-    },
-    "History and Civics": {
-      "2021": "", "2022": "https://drive.google.com/file/d/1uW7Ie9HCIRiO_a03jzzy-UT2v2ERdqhb/view?usp=drive_link", "2023": "", "2024": "https://drive.google.com/file/d/1-hHXy3awwSzSJzcrG2HiUtVNIkd6Ax7v/view?usp=drive_link", "2025": "https://drive.google.com/file/d/1I1mVOjU9qcryM_sWm009XW9eDN1W_T_6/view?usp=drive_link"
-    },
-    Geography: {
-      "2021": "", "2022": "https://drive.google.com/file/d/12TR1n57hIm3J3VQ0yHxB-v9NSVHHi3JA/view?usp=drive_link", "2023": "", "2024": "https://drive.google.com/file/d/1ArVBrfCYZH3sGS0J2Ee2QmnM-yOTPp72/view?usp=drive_link", "2025": "https://drive.google.com/file/d/1xOiXRdsYiVbOz9cYWkpsZSIRx9QRO5nH/view?usp=drive_link"
-    },
+    Marathi: {"2021": "", "2022": "https://drive.google.com/file/d/1GAJxEM5VHNXIVsYr8FX_3lngmOEeFxn1/view?usp=drive_link", "2023": "", "2024": "https://drive.google.com/file/d/11gQp5QO1wAt_uT7Jiad9Hpjq6VkHVqB_/view?usp=drive_link", "2025": "https://drive.google.com/file/d/1mQR6rUmpnLQERDqUOvIyE6VCisevBblo/view?usp=drive_link"},
+    "Mathematics Part-1": {"2021": "", "2022": "https://drive.google.com/file/d/15cGFa11_l-OVfKwlAZkdxUZ1xNccUBlW/view?usp=drive_link", "2023": "https://drive.google.com/file/d/1xGmo77WDUHkLKEx_Jce7Lim2Ue7GNG1L/view?usp=drive_link", "2024": "https://drive.google.com/file/d/1hb9SSkefgxEVRxEZAULiG3OYSYjqaiGo/view?usp=drive_link", "2025": "https://drive.google.com/file/d/1l_7P34X0MDOYvDpEMb8WuIDBGLjrK0_v/view?usp=drive_link"},
+    "Mathematics Part-2": {"2021": "", "2022": "https://drive.google.com/file/d/1xyvQ2oXrgrtnEti1MVNZ6IoCOWZ84WWj/view?usp=drive_link", "2023": "", "2024": "https://drive.google.com/file/d/1BHQB54L6ssO4LfimF4zeXE1jBd0cu1KH/view?usp=drive_link", "2025": "https://drive.google.com/file/d/14I8zgUU94PyLSDtdcNwSHAg82pQAMVsQ/view?usp=drive_link"},
+    English: {"2021": "", "2022": "https://drive.google.com/file/d/1xBxph21Xw8VxdyyJNHyIDH_rWwX5LK76/view?usp=drive_link", "2023": "https://drive.google.com/file/d/1FyRg4QpaAPIVS52O33mOjD59crDLY_DV/view?usp=drive_link", "2024": "https://drive.google.com/file/d/1qR75GgdVsRpalxSBnHo3bqNAL5q7MPu9/view?usp=drive_link", "2025": "https://drive.google.com/file/d/1QqHVJeCh02SnDYlZ-tP9su_eEsfLwSJJ/view?usp=drive_link"},
+    Hindi: {"2021": "", "2022": "https://drive.google.com/file/d/1GICrwEvXsvaIpEydboa3UhIhY-x_SLRc/view?usp=drive_link", "2023": "https://drive.google.com/file/d/1m93W3GnkKVMtjmKPcnzVE6MSXX10KGwx/view?usp=drive_link", "2024": "https://drive.google.com/file/d/1bjCFQIddKrI2p3pouNf3nGfssVmeWiuR/view?usp=drive_link", "2025": "https://drive.google.com/file/d/13JD6LcLcd2wSTnfHQchba9tLl2S2S4sF/view?usp=drive_link"},
+    "Science and Technology Part-1": {"2021": "", "2022": "https://drive.google.com/file/d/1j3nZDDjHl5_I47GHKwU0BLUqOqa6cATi/view?usp=drive_link", "2023": "https://drive.google.com/file/d/18DWlYYK2q14lTDBaTgC1OLq21CskqPLs/view?usp=drive_link", "2024": "https://drive.google.com/file/d/1wk7fZnXeHmn--iy-kDF_kFceT35_Hyib/view?usp=drive_link", "2025": "https://drive.google.com/file/d/18DA1ubBMqmUb5rEoebh0LKfH232Gy6eu/view?usp=drive_link"},
+    "Science and Technology Part-2": {"2021": "", "2022": "https://drive.google.com/file/d/1DMn5Sv3io9zuYb8xq86exbpeZIsF49BV/view?usp=drive_link", "2023": "https://drive.google.com/file/d/1D9jS0fTSVGmm5JdyKjUDSKX1tFgFa1Ll/view?usp=drive_link", "2024": "https://drive.google.com/file/d/1YTcuXf8ji3YP34naDTfFNViYP6oQfDFA/view?usp=drive_link", "2025": "https://drive.google.com/file/d/15WkYuo5rM4-XbUtSVvBNfiMmY5K8cWaW/view?usp=drive_link"},
+    "History and Civics": {"2021": "", "2022": "https://drive.google.com/file/d/1uW7Ie9HCIRiO_a03jzzy-UT2v2ERdqhb/view?usp=drive_link", "2023": "", "2024": "https://drive.google.com/file/d/1-hHXy3awwSzSJzcrG2HiUtVNIkd6Ax7v/view?usp=drive_link", "2025": "https://drive.google.com/file/d/1I1mVOjU9qcryM_sWm009XW9eDN1W_T_6/view?usp=drive_link"},
+    Geography: {"2021": "", "2022": "https://drive.google.com/file/d/12TR1n57hIm3J3VQ0yHxB-v9NSVHHi3JA/view?usp=drive_link", "2023": "", "2024": "https://drive.google.com/file/d/1ArVBrfCYZH3sGS0J2Ee2QmnM-yOTPp72/view?usp=drive_link", "2025": "https://drive.google.com/file/d/1xOiXRdsYiVbOz9cYWkpsZSIRx9QRO5nH/view?usp=drive_link"}
   }
 };
 
 function showMainOptions() {
   sectionTitle.textContent = "Select Resource Type";
   levelContent.innerHTML = "";
-  backBtn.style.display = "none";
+  backBtn.style.display = "inline-block";
+  backBtn.onclick = () => window.location.href = 'index.html';
   currentView = "main";
 
-  const row = document.createElement("div");
-  row.className = "class-row";
-
+  const row = document.createElement("div"); row.className = "class-row";
   const pyqBtn = document.createElement("button");
   pyqBtn.textContent = "📄 Previous Year Questions";
   pyqBtn.className = "btn-shared";
   pyqBtn.onclick = () => showPYQSubjects();
-
   row.appendChild(pyqBtn);
   levelContent.appendChild(row);
 }
@@ -178,10 +174,9 @@ function showPYQSubjects() {
   levelContent.innerHTML = "";
   backBtn.style.display = "inline-block";
   currentView = "pyq";
+  backBtn.onclick = () => showMainOptions();
 
-  const row = document.createElement("div");
-  row.className = "class-row";
-
+  const row = document.createElement("div"); row.className = "class-row";
   Object.keys(pyqLinks["Class 10 PYQ"]).forEach(sub => {
     const btn = document.createElement("button");
     btn.textContent = sub;
@@ -189,46 +184,33 @@ function showPYQSubjects() {
     btn.onclick = () => showPYQYears(sub);
     row.appendChild(btn);
   });
-
   levelContent.appendChild(row);
 }
 
 function showPYQYears(subject) {
   sectionTitle.textContent = `${subject} – Select Year`;
   levelContent.innerHTML = "";
+  backBtn.style.display = "inline-block";
   currentView = "pyq-year";
   currentSubject = subject;
+  backBtn.onclick = () => showPYQSubjects();
 
-  const row = document.createElement("div");
-  row.className = "class-row";
-
+  const row = document.createElement("div"); row.className = "class-row";
   Object.keys(pyqLinks["Class 10 PYQ"][subject]).forEach(year => {
     const link = pyqLinks["Class 10 PYQ"][subject][year];
     const btn = document.createElement("button");
     btn.textContent = year;
     btn.className = "btn-shared";
-
-    if (link) {
-      btn.onclick = () => window.open(link, "_blank");
-    } else {
+    if (link) btn.onclick = () => window.open(link, "_blank");
+    else {
       btn.disabled = true;
       btn.style.opacity = "0.5";
       btn.style.cursor = "not-allowed";
     }
-
     row.appendChild(btn);
   });
-
   levelContent.appendChild(row);
 }
-
-backBtn.onclick = () => {
-  if (currentView === "pyq-year") {
-    showPYQSubjects();
-  } else {
-    showMainOptions();
-  }
-};
 
 showMainOptions();
 </script>
