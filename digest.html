@@ -1,95 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>V.V Maharashtra Board - Digests</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-      color: #2d3748;
-    }
-    header {
-      background: linear-gradient(135deg, #544dd1 0%, #7c3aed 100%);
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-    .logo-circle {
-      width: 55px; height: 55px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #c3b8ff 0%, #4f46e5 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; font-weight: 800; color: #000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    header h1 {
-      margin: 0; color: #fff; font-size: 1.5rem; font-weight: 600;
-    }
-    main {
-      max-width: 950px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 50px 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    h2 {
-      margin: 0 0 28px;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #000;
-      background: #b48bff;
-      padding: 6px 20px;
-      border-radius: 8px;
-      display: inline-block;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .class-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 22px;
-      margin-bottom: 28px;
-    }
-    .btn-shared {
-      width: 200px;
-      padding: 15px 0;
-      border: none;
-      border-radius: 50px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #fff;
-      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-      cursor: pointer;
-      transition: all .3s;
-    }
-    .btn-shared:hover {
-      background: linear-gradient(135deg, #6b63ff 0%, #5b34e5 100%);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-    }
-    #backBtn {
-      margin-top: 25px;
-      padding: 10px 25px;
-      font-size: 1rem;
-      background: #4f46e5;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      display: none;
-      transition: background .3s;
-    }
-    #backBtn:hover { background: #372ea0; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>V.V Maharashtra Board - Digest</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    color: #2d3748;
+  }
+
+  header {
+    background: linear-gradient(135deg, #544dd1 0%, #7c3aed 100%);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .logo-circle {
+    width: 55px; height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c3b8ff 0%, #4f46e5 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; font-weight: 800; color: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  header h1 {
+    margin: 0; color: #fff; font-size: 1.5rem; font-weight: 600;
+  }
+
+  main {
+    max-width: 950px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0 0 28px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+    background: #b48bff;
+    padding: 6px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .class-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-bottom: 28px;
+  }
+
+  .btn-shared {
+    width: 200px;
+    padding: 15px 0;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: all .3s;
+  }
+
+  .btn-shared:hover {
+    background: linear-gradient(135deg, #6b63ff 0%, #5b34e5 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  }
+
+  #backBtn {
+    margin-top: 25px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    transition: background .3s;
+  }
+
+  #backBtn:hover {
+    background: #372ea0;
+  }
+</style>
 </head>
 <body>
 
@@ -105,91 +118,29 @@
 </main>
 
 <script>
-const baseURL = "http://127.0.0.1:8080/digests/";
-
 const digests = {
-  "Class 4": {
-    "EVS Part-1": baseURL + "4_EVS-Part1-Digest.pdf",
-    "EVS Part-2": baseURL + "4_EVS-Part2-Digest.pdf",
-    "Marathi": baseURL + "4_Marathi-Digest.pdf",
-    "English": baseURL + "4_English-Digest.pdf",
-    "Mathematics": baseURL + "4_Mathematics-Digest.pdf",
-    "Hindi": baseURL + "4_Hindi-Digest.pdf"
-  },
-  "Class 5": {
-    "Marathi": baseURL + "5_Marathi-Digest.pdf",
-    "English": baseURL + "5_English-Digest.pdf",
-    "Hindi": baseURL + "5_Hindi-Digest.pdf",
-    "Mathematics": baseURL + "5_Mathematics-Digest.pdf",
-    "EVS Part-1": baseURL + "5_EVS-Part1-Digest.pdf",
-    "EVS Part-2": baseURL + "5_EVS-Part2-Digest.pdf"
-  },
-  "Class 6": {
-    "Marathi": baseURL + "6_Marathi-Digest.pdf",
-    "Mathematics": baseURL + "6_Mathematics-Digest.pdf",
-    "Hindi": baseURL + "6_Hindi-Digest.pdf",
-    "English": baseURL + "6_English-Digest.pdf",
-    "General Science": baseURL + "6_General-Science-Digest.pdf",
-    "History and Civics": baseURL + "6_History-Civics-Digest.pdf",
-    "Geography": baseURL + "6_Geography-Digest.pdf"
-  },
-  "Class 7": {
-    "Marathi": baseURL + "7_Marathi-Digest.pdf",
-    "Mathematics": baseURL + "7_Mathematics-Digest.pdf",
-    "English": baseURL + "7_English-Digest.pdf",
-    "Hindi": baseURL + "7_Hindi-Digest.pdf",
-    "General Science": baseURL + "7_General-Science-Digest.pdf",
-    "History and Civics": baseURL + "7_History-Civics-Digest.pdf",
-    "Geography": baseURL + "7_Geography-Digest.pdf"
-  },
-  "Class 8": {
-    "Marathi": baseURL + "8_Marathi-Digest.pdf",
-    "Mathematics": baseURL + "8_Mathematics-Digest.pdf",
-    "English": baseURL + "8_English-Digest.pdf",
-    "Hindi": baseURL + "8_Hindi-Digest.pdf",
-    "General Science": baseURL + "8_General-Science-Digest.pdf",
-    "History and Civics": baseURL + "8_History-Civics-Digest.pdf",
-    "Geography": baseURL + "8_Geography-Digest.pdf"
-  },
-  "Class 9": {
-    "Marathi": baseURL + "9_Marathi-Digest.pdf",
-    "Mathematics Part-1": baseURL + "9_Mathematics-Part1-Digest.pdf",
-    "Mathematics Part-2": baseURL + "9_Mathematics-Part2-Digest.pdf",
-    "English": baseURL + "9_English-Digest.pdf",
-    "Hindi": baseURL + "9_Hindi-Digest.pdf",
-    "Science and Technology": baseURL + "9_Science-Technology-Digest.pdf",
-    "History and Civics": baseURL + "9_History-Civics-Digest.pdf",
-    "Geography": baseURL + "9_Geography-Digest.pdf"
-  },
-  "Class 10": {
-    "Marathi": baseURL + "10_Marathi-Digest.pdf",
-    "Mathematics Part-1": baseURL + "10_Mathematics-Part1-Digest.pdf",
-    "Mathematics Part-2": baseURL + "10_Mathematics-Part2-Digest.pdf",
-    "English": baseURL + "10_English-Digest.pdf",
-    "Hindi": baseURL + "10_Hindi-Digest.pdf",
-    "Science and Technology Part-1": baseURL + "10_Science-Technology-Part1-Digest.pdf",
-    "Science and Technology Part-2": baseURL + "10_Science-Technology-Part2-Digest.pdf",
-    "History and Civics": baseURL + "10_History-Civics-Digest.pdf",
-    "Geography": baseURL + "10_Geography-Digest.pdf"
-  }
+  "Class 4": {"EVS Part-1":"https://drive.google.com/file/d/xxxx/view?usp=drive_link","EVS Part-2":"https://drive.google.com/file/d/yyyy/view?usp=drive_link","Marathi":"https://drive.google.com/file/d/zzzz/view?usp=drive_link","English":"https://drive.google.com/file/d/aaaa/view?usp=drive_link","Mathematics":"https://drive.google.com/file/d/bbbb/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/cccc/view?usp=drive_link"},
+  "Class 5": {"Marathi":"https://drive.google.com/file/d/dddd/view?usp=drive_link","English":"https://drive.google.com/file/d/eeee/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/ffff/view?usp=drive_link","Mathematics":"https://drive.google.com/file/d/gggg/view?usp=drive_link","EVS Part-1":"https://drive.google.com/file/d/hhhh/view?usp=drive_link","EVS Part-2":"https://drive.google.com/file/d/iiii/view?usp=drive_link"},
+  "Class 6": {"Marathi":"https://drive.google.com/file/d/jjjj/view?usp=drive_link","Mathematics":"https://drive.google.com/file/d/kkkk/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/llll/view?usp=drive_link","English":"https://drive.google.com/file/d/mmmm/view?usp=drive_link","General Science":"https://drive.google.com/file/d/nnnn/view?usp=drive_link","History and Civics":"https://drive.google.com/file/d/oooo/view?usp=drive_link","Geography":"https://drive.google.com/file/d/pppp/view?usp=drive_link"},
+  "Class 7": {"Marathi":"https://drive.google.com/file/d/qqqq/view?usp=drive_link","Mathematics":"https://drive.google.com/file/d/rrrr/view?usp=drive_link","English":"https://drive.google.com/file/d/ssss/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/tttt/view?usp=drive_link","General Science":"https://drive.google.com/file/d/uuuu/view?usp=drive_link","History and Civics":"https://drive.google.com/file/d/vvvv/view?usp=drive_link","Geography":"https://drive.google.com/file/d/wwww/view?usp=drive_link"},
+  "Class 8": {"Marathi":"https://drive.google.com/file/d/xxxx1/view?usp=drive_link","Mathematics":"https://drive.google.com/file/d/xxxx2/view?usp=drive_link","English":"https://drive.google.com/file/d/xxxx3/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/xxxx4/view?usp=drive_link","General Science":"https://drive.google.com/file/d/xxxx5/view?usp=drive_link","History and Civics":"https://drive.google.com/file/d/xxxx6/view?usp=drive_link","Geography":"https://drive.google.com/file/d/xxxx7/view?usp=drive_link"},
+  "Class 9": {"Marathi":"https://drive.google.com/file/d/xxxx8/view?usp=drive_link","Mathematics Part-1":"https://drive.google.com/file/d/xxxx9/view?usp=drive_link","Mathematics Part-2":"https://drive.google.com/file/d/xxxx10/view?usp=drive_link","English":"https://drive.google.com/file/d/xxxx11/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/xxxx12/view?usp=drive_link","Science and Technology":"https://drive.google.com/file/d/xxxx13/view?usp=drive_link","History and Civics":"https://drive.google.com/file/d/xxxx14/view?usp=drive_link","Geography":"https://drive.google.com/file/d/xxxx15/view?usp=drive_link"},
+  "Class 10": {"Marathi":"https://drive.google.com/file/d/xxxx16/view?usp=drive_link","Mathematics Part-1":"https://drive.google.com/file/d/1oqEOpYUUGjwiO8upDCKenG7P-bn3mvha/view?usp=drive_link","Mathematics Part-2":"https://drive.google.com/file/d/xxxx18/view?usp=drive_link","English":"https://drive.google.com/file/d/xxxx19/view?usp=drive_link","Hindi":"https://drive.google.com/file/d/xxxx20/view?usp=drive_link","Science and Technology Part-1":"https://drive.google.com/file/d/xxxx21/view?usp=drive_link","Science and Technology Part-2":"https://drive.google.com/file/d/xxxx22/view?usp=drive_link","History and Civics":"https://drive.google.com/file/d/xxxx23/view?usp=drive_link","Geography":"https://drive.google.com/file/d/xxxx24/view?usp=drive_link"}
 };
 
 const levelContent = document.getElementById("levelContent");
-const backBtn = document.getElementById("backBtn");
 const sectionTitle = document.getElementById("sectionTitle");
-let currentClass = null;
+const backBtn = document.getElementById("backBtn");
 
 function showClasses() {
   sectionTitle.textContent = "Select Class";
-  backBtn.style.display = "none";
   levelContent.innerHTML = "";
-  currentClass = null;
+  backBtn.style.display = "inline-block"; 
+  backBtn.onclick = () => window.location.href = 'index.html';
 
   const classes = Object.keys(digests);
-  const topRow = document.createElement("div");
-  topRow.className = "class-row";
-  const bottomRow = document.createElement("div");
-  bottomRow.className = "class-row";
+  const topRow = document.createElement("div"); topRow.className = "class-row";
+  const bottomRow = document.createElement("div"); bottomRow.className = "class-row";
 
   classes.slice(0,4).forEach(cls => {
     const btn = document.createElement("button");
@@ -212,14 +163,13 @@ function showClasses() {
 }
 
 function showSubjects(cls) {
-  currentClass = cls;
   sectionTitle.textContent = "Subjects";
   levelContent.innerHTML = "";
-  backBtn.style.display = "inline-block";
+  backBtn.style.display = "inline-block"; 
+  backBtn.onclick = () => showClasses(); 
 
   const subjects = digests[cls];
-  const row = document.createElement("div");
-  row.className = "class-row";
+  const row = document.createElement("div"); row.className = "class-row";
 
   Object.keys(subjects).forEach(sub => {
     const btn = document.createElement("button");
@@ -232,7 +182,6 @@ function showSubjects(cls) {
   levelContent.appendChild(row);
 }
 
-backBtn.onclick = () => showClasses();
 showClasses();
 </script>
 
