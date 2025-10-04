@@ -60,6 +60,29 @@
       margin-top: 20px;
       display: none;
     }
+
+    .back-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1a73e8;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s;
+  z-index: 1000;
+}
+
+.back-btn:hover {
+  background-color: #1558b0;
+}
+
   </style>
 </head>
 <body>
@@ -118,7 +141,7 @@
           </div>
           <div class="col-md-6">
             <label for="mobile" class="form-label">Mobile</label>
-            <input type="text" class="form-control" id="mobile" placeholder="‪+91 98...‬">
+            <input type="text" class="form-control" id="mobile" placeholder="‪+91 9876543210‬">
           </div>
         </div>
 
@@ -219,6 +242,9 @@
   });
 </script>
 
+<a href="index.html" class="back-btn">
+  <i class="fas fa-arrow-left"></i> Back
+</a>
+
 </body>
 </html>
-
