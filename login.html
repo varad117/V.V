@@ -21,7 +21,7 @@
     }
     .container {
       background: #fff;
-      width: 350px;
+      width: 400px;
       padding: 30px;
       border-radius: 12px;
       text-align: center;
@@ -35,31 +35,18 @@
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 10px auto;
     }
-    .input-group { margin-bottom: 18px; text-align: left; }
+    .input-group { margin-bottom: 15px; text-align: left; }
     .input-group label { font-size: 0.9rem; font-weight: 500; display:block; margin-bottom:6px; }
-    .input-group input {
-      width: 100%; padding: 12px;
-      border: 1px solid #ccc; border-radius: 8px;
-      font-size: 1rem;
-    }
-    .btn {
-      width: 100%; padding: 12px;
-      background: linear-gradient(135deg,#4f46e5,#7c3aed);
-      color: #fff; border: none; border-radius: 8px;
-      font-size: 1rem; font-weight: 600; cursor: pointer;
-    }
+    .input-group input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+    .btn { width: 100%; padding: 12px; background: linear-gradient(135deg,#4f46e5,#7c3aed); color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
     .btn:hover { background: linear-gradient(135deg,#6b63ff,#5b34e5); }
     .extra-links { margin-top: 15px; font-size: 0.9rem; }
     .extra-links a { color: #4f46e5; text-decoration: none; cursor: pointer; }
     .extra-links a:hover { text-decoration: underline; }
+    #otpGroup { margin-top: 10px; }
+    #otpGroup input { width: 70%; display: inline-block; margin-right: 5px; }
+    #otpGroup button { width: 25%; display: inline-block; }
   </style>
-
-  <script>
-    // Redirect logged-in users to index
-    if (localStorage.getItem("loggedIn") === "true") {
-      window.location.href = "index.html";
-    }
-  </script>
 </head>
 <body>
 
@@ -68,10 +55,10 @@
   <h2 id="formTitle">Login</h2>
 
   <!-- LOGIN FORM -->
-  <form id="loginForm" onsubmit="return loginUser(event)">
+  <form id="loginForm" onsubmit="loginUser(event)">
     <div class="input-group">
       <label>Email</label>
-      <input type="email" id="email" placeholder="Enter your email" required />
+      <input type="email" id="email" placeholder="Enter your Gmail" required />
     </div>
     <div class="input-group">
       <label>Password</label>
@@ -80,19 +67,24 @@
     <button type="submit" class="btn">Login</button>
   </form>
 
-  <!-- SIGN UP FORM -->
-  <form id="signupForm" onsubmit="return signupUser(event)" style="display:none;">
+  <!-- SIGNUP FORM -->
+  <form id="signupForm" onsubmit="signupUser(event)" style="display:none;">
     <div class="input-group">
       <label>Full Name</label>
-      <input type="text" id="newName" required />
+      <input type="text" id="newName" placeholder="Your name" required />
     </div>
     <div class="input-group">
       <label>Email</label>
-      <input type="email" id="newEmail" required />
+      <input type="email" id="newEmail" placeholder="Enter Gmail" required />
+      <button type="button" onclick="sendOtp()" style="margin-top:5px;">Send OTP</button>
+    </div>
+    <div class="input-group" id="otpGroup" style="display:none;">
+      <input type="text" id="otpCode" placeholder="6-digit OTP" />
+      <button type="button" onclick="verifyOtp()">Verify OTP</button>
     </div>
     <div class="input-group">
       <label>Password</label>
-      <input type="password" id="newPassword" required />
+      <input type="password" id="newPassword" placeholder="Set password" required />
     </div>
     <button type="submit" class="btn">Sign Up</button>
   </form>
@@ -106,51 +98,139 @@
 </div>
 
 <script>
-  function loginUser(event){
+  // ===== Helper =====
+  function isValidGmail(email) {
+    return /^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email);
+  }
+
+  // ===== OTP Variables =====
+  let otpToken = null;
+
+  // ===== LOGIN =====
+  async function loginUser(event){
     event.preventDefault();
     const email = document.getElementById("email").value.trim();
     const pass = document.getElementById("password").value.trim();
 
-    if(email && pass){
-      localStorage.setItem("loggedIn", "true");
-      localStorage.setItem("userEmail", email);
-      alert("Login successful!");
-      window.location.href="index.html";
-    } else {
+    if(!isValidGmail(email)){
+      alert("Please enter a valid Gmail address.");
+      return;
+    }
+    if(!email || !pass){
       alert("Enter email and password.");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ email, password: pass })
+      });
+      const data = await res.json();
+      alert(data.message);
+      if(data.success){
+        localStorage.setItem("loggedIn","true");
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("userName", data.user.name);
+        window.location.href="index.html";
+      }
+    } catch(e) {
+      alert("Server error. Try again.");
+      console.error(e);
     }
   }
 
-  function signupUser(event){
+  // ===== SEND OTP =====
+  async function sendOtp(){
+    const email = document.getElementById("newEmail").value.trim();
+    if(!isValidGmail(email)){
+      alert("Enter a valid Gmail.");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:3000/send-otp", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      alert(data.message);
+      if(data.success) document.getElementById("otpGroup").style.display = "block";
+    } catch(e){
+      alert("Server error. Try again.");
+    }
+  }
+
+  // ===== VERIFY OTP =====
+  async function verifyOtp(){
+    const email = document.getElementById("newEmail").value.trim();
+    const code = document.getElementById("otpCode").value.trim();
+    if(!code) return alert("Enter OTP");
+
+    try {
+      const res = await fetch("http://localhost:3000/verify-otp", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ email, code })
+      });
+      const data = await res.json();
+      alert(data.message);
+      if(data.success){
+        otpToken = data.otpToken;
+        document.getElementById("otpGroup").style.display = "none";
+      }
+    } catch(e){
+      alert("Server error. Try again.");
+    }
+  }
+
+  // ===== SIGNUP =====
+  async function signupUser(event){
     event.preventDefault();
     const name = document.getElementById("newName").value.trim();
     const email = document.getElementById("newEmail").value.trim();
     const pass = document.getElementById("newPassword").value.trim();
 
-    if(name && email && pass){
-      alert("Account created! Now login.");
-      showLogin();
-    } else {
-      alert("Fill all fields.");
+    if(!otpToken) return alert("Verify OTP first!");
+    if(!name || !email || !pass) return alert("Fill all fields.");
+
+    try {
+      const res = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ name, email, password: pass, otpToken })
+      });
+      const data = await res.json();
+      alert(data.message);
+      if(data.success) showLogin();
+    } catch(e){
+      alert("Server error. Try again.");
     }
   }
 
+  // ===== SHOW LOGIN/SIGNUP =====
   function showSignup(){
-    document.getElementById("loginForm").style.display = "none";
-    document.getElementById("signupForm").style.display = "block";
-    document.getElementById("linksLogin").style.display = "none";
-    document.getElementById("linksSignup").style.display = "block";
-    document.getElementById("formTitle").innerText = "Sign Up";
+    document.getElementById("loginForm").style.display="none";
+    document.getElementById("signupForm").style.display="block";
+    document.getElementById("linksLogin").style.display="none";
+    document.getElementById("linksSignup").style.display="block";
+    document.getElementById("formTitle").innerText="Sign Up";
   }
 
   function showLogin(){
-    document.getElementById("loginForm").style.display = "block";
-    document.getElementById("signupForm").style.display = "none";
-    document.getElementById("linksLogin").style.display = "block";
-    document.getElementById("linksSignup").style.display = "none";
-    document.getElementById("formTitle").innerText = "Login";
+    document.getElementById("loginForm").style.display="block";
+    document.getElementById("signupForm").style.display="none";
+    document.getElementById("linksLogin").style.display="block";
+    document.getElementById("linksSignup").style.display="none";
+    document.getElementById("formTitle").innerText="Login";
+  }
+
+  // ===== AUTO REDIRECT IF LOGGED IN =====
+  window.onload = () => {
+    if(localStorage.getItem("loggedIn")==="true"){
+      window.location.href="index.html";
+    }
   }
 </script>
-
-</body>
-</html>
