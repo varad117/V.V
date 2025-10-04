@@ -1,4 +1,3 @@
-<script>
 window.onload = () => {
   const backBtn = document.getElementById("backBtn");
   const levelContent = document.getElementById("levelContent");
