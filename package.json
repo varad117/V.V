@@ -1,0 +1,32 @@
+{
+  "name": "vv-login-system",
+  "version": "1.0.0",
+  "description": "Login and OTP verification system for V.V Maharashtra Board",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Varad Ashok Manwatkar",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "nodemailer": "^7.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
+
+POST http://localhost:3000/verify-otp
+Content-Type: application/json
+
+{
+  "email": "manwatkarvarad@gmail.com",
+  "code": "634112"  
