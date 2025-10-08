@@ -434,12 +434,12 @@ async function loginUser(event){
   }
 }
 
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/next";
 
-function App() {
+export default function Layout({ children }) {
   return (
     <>
-      {/* Your existing layout */}
+      {children}
       <Analytics />
     </>
   );
