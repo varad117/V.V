@@ -433,3 +433,14 @@ async function loginUser(event){
     window.location.href="index.html";
   }
 }
+
+import { Analytics } from '@vercel/analytics/react';
+
+function App() {
+  return (
+    <>
+      {/* Your existing layout */}
+      <Analytics />
+    </>
+  );
+}
